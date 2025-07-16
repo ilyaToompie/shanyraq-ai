@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:google_nav_bar/google_nav_bar.dart';
 import 'package:shyraq_ai/features/home/home_screen.dart';
+import 'package:shyraq_ai/features/learn/learn_screen.dart';
 import 'package:shyraq_ai/features/practice/practice_screen.dart';
 
 class MainView extends StatefulWidget {
@@ -15,7 +16,7 @@ class _MainViewState extends State<MainView> {
 
   final List<Widget> _bottomNavBarScreens = <Widget>[
     const HomeScreen(),
-    const Text('Likes'),
+    const LearnScreen(),
     const PracticeScreen(),
     const Text('Profile'),
     const Text('Profile'),
