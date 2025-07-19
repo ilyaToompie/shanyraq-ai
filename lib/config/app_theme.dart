@@ -3,6 +3,14 @@ import 'package:flutter/material.dart';
 class AppTheme {
   static ThemeData lightTheme = ThemeData(
     useMaterial3: true,
+    appBarTheme: AppBarTheme(
+      centerTitle: false,
+      titleTextStyle: TextStyle(
+        fontSize: 32,
+        fontWeight: FontWeight.w300,
+        color: Color.fromRGBO(0, 0, 0, 1).withAlpha(200),
+      ),
+    ),
     brightness: Brightness.light,
     colorScheme: ColorScheme(
       brightness: Brightness.light,
@@ -55,6 +63,14 @@ class AppTheme {
         fontSize: 16,
         fontWeight: FontWeight.w500,
         color: Colors.black12,
+      ),
+    ),
+    appBarTheme: AppBarTheme(
+      centerTitle: false,
+      titleTextStyle: TextStyle(
+        fontSize: 32,
+        fontWeight: FontWeight.w300,
+        color: Color.fromRGBO(255, 255, 255, 1).withAlpha(200),
       ),
     ),
   );

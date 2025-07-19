@@ -1,0 +1,952 @@
+
+════════ Exception caught by rendering library ═════════════════════════════════
+The following assertion was thrown during performLayout():
+RenderFlex children have non-zero flex but incoming height constraints are unbounded.
+When a column is in a parent that does not provide a finite height constraint, for example if it is in a vertical scrollable, it will try to shrink-wrap its children along the vertical axis. Setting a flex on a child (e.g. using Expanded) indicates that the child is to expand to fill the remaining space in the vertical direction.
+These two directives are mutually exclusive. If a parent is to shrink-wrap its child, the child cannot simultaneously expand to fit its parent.
+Consider setting mainAxisSize to MainAxisSize.min and using FlexFit.loose fits for the flexible children (using Flexible rather than Expanded). This will allow the flexible children to size themselves to less than the infinite remaining space they would otherwise be forced to take, and then will cause the RenderFlex to shrink-wrap the children rather than expanding to fit the maximum constraints provided by the parent.
+If this message did not help you determine the problem, consider using debugDumpRenderTree():
+  https://flutter.dev/to/debug-render-layer
+  https://api.flutter.dev/flutter/rendering/debugDumpRenderTree.html
+The affected RenderFlex is: RenderFlex#95a1d relayoutBoundary=up14 NEEDS-LAYOUT NEEDS-PAINT NEEDS-COMPOSITING-BITS-UPDATE
+    parentData: offset=Offset(0.0, 0.0) (can use size)
+    constraints: BoxConstraints(0.0<=w<=398.0, 0.0<=h<=Infinity)
+    size: MISSING
+    direction: vertical
+    mainAxisAlignment: start
+    mainAxisSize: max
+    crossAxisAlignment: center
+    verticalDirection: down
+    spacing: 0.0
+    child 1: RenderTransform#d7f0f NEEDS-LAYOUT NEEDS-PAINT NEEDS-COMPOSITING-BITS-UPDATE
+        parentData: offset=Offset(0.0, 0.0); flex=null; fit=null
+        constraints: MISSING
+        size: MISSING
+        transform matrix: [0] 1.0,0.0,0.0,0.0
+[1] 0.0,1.0,0.0,-12.0
+[2] 0.0,0.0,1.0,0.0
+[3] 0.0,0.0,0.0,1.0
+        origin: null
+        alignment: null
+        textDirection: ltr
+        transformHitTests: true
+        child: RenderParagraph#d7b3b NEEDS-LAYOUT NEEDS-PAINT
+            parentData: <none>
+            constraints: MISSING
+            size: MISSING
+            textAlign: start
+            textDirection: ltr
+            softWrap: wrapping at box width
+            overflow: clip
+            locale: en_US
+            maxLines: unlimited
+            text: TextSpan
+                debugLabel: ((englishLike bodyMedium 2021).merge((((blackCupertino bodyMedium).apply).apply).merge(unknown))).merge(unknown)
+                inherit: false
+                color: Color(alpha: 1.0000, red: 0.0275, green: 0.0275, blue: 0.0275, colorSpace: ColorSpace.sRGB)
+                family: Outfit
+                size: 54.0
+                weight: 500
+                letterSpacing: -2.0
+                baseline: alphabetic
+                height: 1.1x
+                leadingDistribution: even
+                decoration: Color(alpha: 1.0000, red: 0.0000, green: 0.0000, blue: 0.0000, colorSpace: ColorSpace.sRGB) TextDecoration.none
+                "Challenge your knowledge"
+    child 2: RenderConstrainedBox#a62d8 NEEDS-LAYOUT NEEDS-PAINT NEEDS-COMPOSITING-BITS-UPDATE
+        parentData: offset=Offset(0.0, 0.0); flex=null; fit=null
+        constraints: MISSING
+        size: MISSING
+        additionalConstraints: BoxConstraints(w=410.0, 0.0<=h<=Infinity)
+        child: RenderDecoratedBox#f800d NEEDS-LAYOUT NEEDS-PAINT NEEDS-COMPOSITING-BITS-UPDATE
+            parentData: <none>
+            constraints: MISSING
+            size: MISSING
+            decoration: BoxDecoration
+                color: Color(alpha: 1.0000, red: 0.0000, green: 0.0000, blue: 0.0000, colorSpace: ColorSpace.sRGB)
+                borderRadius: BorderRadius.circular(32.0)
+            configuration: ImageConfiguration(bundle: PlatformAssetBundle#4dbbf(), devicePixelRatio: 3.0, locale: en_US, textDirection: TextDirection.ltr, platform: iOS)
+            child: RenderPadding#587e2 NEEDS-LAYOUT NEEDS-PAINT NEEDS-COMPOSITING-BITS-UPDATE
+                parentData: <none>
+                constraints: MISSING
+                size: MISSING
+                padding: EdgeInsets.zero
+                textDirection: ltr
+                child: RenderPadding#e2f13 NEEDS-LAYOUT NEEDS-PAINT NEEDS-COMPOSITING-BITS-UPDATE
+                    parentData: offset=Offset(0.0, 0.0)
+                    constraints: MISSING
+                    size: MISSING
+                    padding: EdgeInsets.all(16.0)
+                    textDirection: ltr
+    child 3: RenderParagraph#f6ddb NEEDS-LAYOUT NEEDS-PAINT
+        parentData: offset=Offset(0.0, 0.0); flex=null; fit=null
+        constraints: MISSING
+        size: MISSING
+        textAlign: start
+        textDirection: ltr
+        softWrap: wrapping at box width
+        overflow: clip
+        locale: en_US
+        maxLines: unlimited
+        text: TextSpan
+            debugLabel: ((englishLike bodyMedium 2021).merge((((blackCupertino bodyMedium).apply).apply).merge(unknown))).merge(unknown)
+            inherit: false
+            color: Color(alpha: 0.5882, red: 0.0275, green: 0.0275, blue: 0.0275, colorSpace: ColorSpace.sRGB)
+            family: Outfit
+            size: 32.0
+            weight: 500
+            letterSpacing: -2.0
+            baseline: alphabetic
+            height: 1.1x
+            leadingDistribution: even
+            decoration: Color(alpha: 1.0000, red: 0.0000, green: 0.0000, blue: 0.0000, colorSpace: ColorSpace.sRGB) TextDecoration.none
+            "or"
+    child 4: RenderParagraph#74d3b NEEDS-LAYOUT NEEDS-PAINT
+        parentData: offset=Offset(0.0, 0.0); flex=null; fit=null
+        constraints: MISSING
+        size: MISSING
+        textAlign: start
+        textDirection: ltr
+        softWrap: wrapping at box width
+        overflow: clip
+        locale: en_US
+        maxLines: unlimited
+        text: TextSpan
+            debugLabel: ((englishLike bodyMedium 2021).merge((((blackCupertino bodyMedium).apply).apply).merge(unknown))).merge(unknown)
+            inherit: false
+            color: Color(alpha: 0.5882, red: 0.0275, green: 0.0275, blue: 0.0275, colorSpace: ColorSpace.sRGB)
+            family: Outfit
+            size: 32.0
+            weight: 500
+            letterSpacing: -2.0
+            baseline: alphabetic
+            height: 1.1x
+            leadingDistribution: even
+            decoration: Color(alpha: 1.0000, red: 0.0000, green: 0.0000, blue: 0.0000, colorSpace: ColorSpace.sRGB) TextDecoration.none
+            "Select question type"
+    child 5: RenderConstrainedBox#0fabc NEEDS-LAYOUT NEEDS-PAINT
+        parentData: offset=Offset(0.0, 0.0); flex=null; fit=null
+        constraints: MISSING
+        size: MISSING
+        additionalConstraints: BoxConstraints(0.0<=w<=Infinity, h=16.0)
+    child 6: RenderFlex#fc3a1 NEEDS-LAYOUT NEEDS-PAINT NEEDS-COMPOSITING-BITS-UPDATE
+        parentData: offset=Offset(0.0, 0.0); flex=1; fit=FlexFit.loose
+        constraints: MISSING
+        size: MISSING
+        direction: vertical
+        mainAxisAlignment: start
+        mainAxisSize: max
+        crossAxisAlignment: center
+        verticalDirection: down
+        spacing: 0.0
+        child 1: RenderFlex#04aa9 NEEDS-LAYOUT NEEDS-PAINT NEEDS-COMPOSITING-BITS-UPDATE
+            parentData: offset=Offset(0.0, 0.0); flex=null; fit=null
+            constraints: MISSING
+            size: MISSING
+            direction: horizontal
+            mainAxisAlignment: spaceAround
+            mainAxisSize: max
+            crossAxisAlignment: center
+            textDirection: ltr
+            verticalDirection: down
+            spacing: 0.0
+            child 1: RenderFlex#8c846 NEEDS-LAYOUT NEEDS-PAINT NEEDS-COMPOSITING-BITS-UPDATE
+                parentData: offset=Offset(0.0, 0.0); flex=null; fit=null
+                constraints: MISSING
+                size: MISSING
+                direction: vertical
+                mainAxisAlignment: start
+                mainAxisSize: max
+                crossAxisAlignment: center
+                verticalDirection: down
+                spacing: 0.0
+                child 1: RenderSemanticsGestureHandler#573a7 NEEDS-LAYOUT NEEDS-PAINT NEEDS-COMPOSITING-BITS-UPDATE
+                    parentData: offset=Offset(0.0, 0.0); flex=null; fit=null
+                    constraints: MISSING
+                    size: MISSING
+                    behavior: deferToChild
+                    gestures: tap
+                child 2: RenderConstrainedBox#a4421 NEEDS-LAYOUT NEEDS-PAINT
+                    parentData: offset=Offset(0.0, 0.0); flex=null; fit=null
+                    constraints: MISSING
+                    size: MISSING
+                    additionalConstraints: BoxConstraints(0.0<=w<=Infinity, h=4.0)
+                child 3: RenderSemanticsGestureHandler#0b725 NEEDS-LAYOUT NEEDS-PAINT NEEDS-COMPOSITING-BITS-UPDATE
+                    parentData: offset=Offset(0.0, 0.0); flex=null; fit=null
+                    constraints: MISSING
+                    size: MISSING
+                    behavior: deferToChild
+                    gestures: tap
+            child 2: RenderFlex#ea426 NEEDS-LAYOUT NEEDS-PAINT NEEDS-COMPOSITING-BITS-UPDATE
+                parentData: offset=Offset(0.0, 0.0); flex=null; fit=null
+                constraints: MISSING
+                size: MISSING
+                direction: vertical
+                mainAxisAlignment: start
+                mainAxisSize: max
+                crossAxisAlignment: center
+                verticalDirection: down
+                spacing: 0.0
+                child 1: RenderSemanticsGestureHandler#13cc7 NEEDS-LAYOUT NEEDS-PAINT NEEDS-COMPOSITING-BITS-UPDATE
+                    parentData: offset=Offset(0.0, 0.0); flex=null; fit=null
+                    constraints: MISSING
+                    size: MISSING
+                    behavior: deferToChild
+                    gestures: tap
+                child 2: RenderConstrainedBox#3c15e NEEDS-LAYOUT NEEDS-PAINT
+                    parentData: offset=Offset(0.0, 0.0); flex=null; fit=null
+                    constraints: MISSING
+                    size: MISSING
+                    additionalConstraints: BoxConstraints(0.0<=w<=Infinity, h=4.0)
+                child 3: RenderSemanticsGestureHandler#32412 NEEDS-LAYOUT NEEDS-PAINT NEEDS-COMPOSITING-BITS-UPDATE
+                    parentData: offset=Offset(0.0, 0.0); flex=null; fit=null
+                    constraints: MISSING
+                    size: MISSING
+                    behavior: deferToChild
+                    gestures: tap
+        child 2: RenderConstrainedBox#6f164 NEEDS-LAYOUT NEEDS-PAINT
+            parentData: offset=Offset(0.0, 0.0); flex=null; fit=null
+            constraints: MISSING
+            size: MISSING
+            additionalConstraints: BoxConstraints(0.0<=w<=Infinity, h=4.0)
+        child 3: RenderSemanticsGestureHandler#cb702 NEEDS-LAYOUT NEEDS-PAINT NEEDS-COMPOSITING-BITS-UPDATE
+            parentData: offset=Offset(0.0, 0.0); flex=null; fit=null
+            constraints: MISSING
+            size: MISSING
+            behavior: deferToChild
+            gestures: tap
+            child: RenderPointerListener#3d00c NEEDS-LAYOUT NEEDS-PAINT NEEDS-COMPOSITING-BITS-UPDATE
+                parentData: <none>
+                constraints: MISSING
+                size: MISSING
+                behavior: deferToChild
+                listeners: down, panZoomStart
+                child: RenderConstrainedBox#f769e NEEDS-LAYOUT NEEDS-PAINT NEEDS-COMPOSITING-BITS-UPDATE
+                    parentData: <none>
+                    constraints: MISSING
+                    size: MISSING
+                    additionalConstraints: BoxConstraints(w=410.0, 0.0<=h<=Infinity)
+The creator information is set to: Column ← Padding ← _SingleChildViewport ← IgnorePointer-[GlobalKey#8cdea] ← Semantics ← Listener ← _GestureSemantics ← RawGestureDetector-[LabeledGlobalKey<RawGestureDetectorState>#f6380] ← Listener ← _ScrollableScope ← _ScrollSemantics-[GlobalKey#92ab2] ← NotificationListener<ScrollMetricsNotification> ← ⋯
+The nearest ancestor providing an unbounded width constraint is: _RenderSingleChildViewport#f6c17 relayoutBoundary=up12 NEEDS-LAYOUT NEEDS-PAINT NEEDS-COMPOSITING-BITS-UPDATE
+    needs compositing
+    parentData: <none> (can use size)
+    constraints: BoxConstraints(0.0<=w<=430.0, 0.0<=h<=729.0)
+    size: MISSING
+    offset: Offset(0.0, -0.0)
+    child: RenderPadding#8ad5a relayoutBoundary=up13 NEEDS-LAYOUT NEEDS-PAINT NEEDS-COMPOSITING-BITS-UPDATE
+        parentData: <none> (can use size)
+        constraints: BoxConstraints(0.0<=w<=430.0, 0.0<=h<=Infinity)
+        size: MISSING
+        padding: EdgeInsets.all(16.0)
+        textDirection: ltr
+        child: RenderFlex#95a1d relayoutBoundary=up14 NEEDS-LAYOUT NEEDS-PAINT NEEDS-COMPOSITING-BITS-UPDATE
+            parentData: offset=Offset(0.0, 0.0) (can use size)
+            constraints: BoxConstraints(0.0<=w<=398.0, 0.0<=h<=Infinity)
+            size: MISSING
+            direction: vertical
+            mainAxisAlignment: start
+            mainAxisSize: max
+            crossAxisAlignment: center
+            verticalDirection: down
+            spacing: 0.0
+            child 1: RenderTransform#d7f0f NEEDS-LAYOUT NEEDS-PAINT NEEDS-COMPOSITING-BITS-UPDATE
+                parentData: offset=Offset(0.0, 0.0); flex=null; fit=null
+                constraints: MISSING
+                size: MISSING
+                transform matrix: [0] 1.0,0.0,0.0,0.0
+[1] 0.0,1.0,0.0,-12.0
+[2] 0.0,0.0,1.0,0.0
+[3] 0.0,0.0,0.0,1.0
+                origin: null
+                alignment: null
+                textDirection: ltr
+                transformHitTests: true
+                child: RenderParagraph#d7b3b NEEDS-LAYOUT NEEDS-PAINT
+                    parentData: <none>
+                    constraints: MISSING
+                    size: MISSING
+                    textAlign: start
+                    textDirection: ltr
+                    softWrap: wrapping at box width
+                    overflow: clip
+                    locale: en_US
+                    maxLines: unlimited
+            child 2: RenderConstrainedBox#a62d8 NEEDS-LAYOUT NEEDS-PAINT NEEDS-COMPOSITING-BITS-UPDATE
+                parentData: offset=Offset(0.0, 0.0); flex=null; fit=null
+                constraints: MISSING
+                size: MISSING
+                additionalConstraints: BoxConstraints(w=410.0, 0.0<=h<=Infinity)
+                child: RenderDecoratedBox#f800d NEEDS-LAYOUT NEEDS-PAINT NEEDS-COMPOSITING-BITS-UPDATE
+                    parentData: <none>
+                    constraints: MISSING
+                    size: MISSING
+                    decoration: BoxDecoration
+                        color: Color(alpha: 1.0000, red: 0.0000, green: 0.0000, blue: 0.0000, colorSpace: ColorSpace.sRGB)
+                        borderRadius: BorderRadius.circular(32.0)
+                    configuration: ImageConfiguration(bundle: PlatformAssetBundle#4dbbf(), devicePixelRatio: 3.0, locale: en_US, textDirection: TextDirection.ltr, platform: iOS)
+            child 3: RenderParagraph#f6ddb NEEDS-LAYOUT NEEDS-PAINT
+                parentData: offset=Offset(0.0, 0.0); flex=null; fit=null
+                constraints: MISSING
+                size: MISSING
+                textAlign: start
+                textDirection: ltr
+                softWrap: wrapping at box width
+                overflow: clip
+                locale: en_US
+                maxLines: unlimited
+                text: TextSpan
+                    debugLabel: ((englishLike bodyMedium 2021).merge((((blackCupertino bodyMedium).apply).apply).merge(unknown))).merge(unknown)
+                    inherit: false
+                    color: Color(alpha: 0.5882, red: 0.0275, green: 0.0275, blue: 0.0275, colorSpace: ColorSpace.sRGB)
+                    family: Outfit
+                    size: 32.0
+                    weight: 500
+                    letterSpacing: -2.0
+                    baseline: alphabetic
+                    height: 1.1x
+                    leadingDistribution: even
+                    decoration: Color(alpha: 1.0000, red: 0.0000, green: 0.0000, blue: 0.0000, colorSpace: ColorSpace.sRGB) TextDecoration.none
+                    "or"
+            child 4: RenderParagraph#74d3b NEEDS-LAYOUT NEEDS-PAINT
+                parentData: offset=Offset(0.0, 0.0); flex=null; fit=null
+                constraints: MISSING
+                size: MISSING
+                textAlign: start
+                textDirection: ltr
+                softWrap: wrapping at box width
+                overflow: clip
+                locale: en_US
+                maxLines: unlimited
+                text: TextSpan
+                    debugLabel: ((englishLike bodyMedium 2021).merge((((blackCupertino bodyMedium).apply).apply).merge(unknown))).merge(unknown)
+                    inherit: false
+                    color: Color(alpha: 0.5882, red: 0.0275, green: 0.0275, blue: 0.0275, colorSpace: ColorSpace.sRGB)
+                    family: Outfit
+                    size: 32.0
+                    weight: 500
+                    letterSpacing: -2.0
+                    baseline: alphabetic
+                    height: 1.1x
+                    leadingDistribution: even
+                    decoration: Color(alpha: 1.0000, red: 0.0000, green: 0.0000, blue: 0.0000, colorSpace: ColorSpace.sRGB) TextDecoration.none
+                    "Select question type"
+            child 5: RenderConstrainedBox#0fabc NEEDS-LAYOUT NEEDS-PAINT
+                parentData: offset=Offset(0.0, 0.0); flex=null; fit=null
+                constraints: MISSING
+                size: MISSING
+                additionalConstraints: BoxConstraints(0.0<=w<=Infinity, h=16.0)
+            child 6: RenderFlex#fc3a1 NEEDS-LAYOUT NEEDS-PAINT NEEDS-COMPOSITING-BITS-UPDATE
+                parentData: offset=Offset(0.0, 0.0); flex=1; fit=FlexFit.loose
+                constraints: MISSING
+                size: MISSING
+                direction: vertical
+                mainAxisAlignment: start
+                mainAxisSize: max
+                crossAxisAlignment: center
+                verticalDirection: down
+                spacing: 0.0
+                child 1: RenderFlex#04aa9 NEEDS-LAYOUT NEEDS-PAINT NEEDS-COMPOSITING-BITS-UPDATE
+                    parentData: offset=Offset(0.0, 0.0); flex=null; fit=null
+                    constraints: MISSING
+                    size: MISSING
+                    direction: horizontal
+                    mainAxisAlignment: spaceAround
+                    mainAxisSize: max
+                    crossAxisAlignment: center
+                    textDirection: ltr
+                    verticalDirection: down
+                    spacing: 0.0
+                child 2: RenderConstrainedBox#6f164 NEEDS-LAYOUT NEEDS-PAINT
+                    parentData: offset=Offset(0.0, 0.0); flex=null; fit=null
+                    constraints: MISSING
+                    size: MISSING
+                    additionalConstraints: BoxConstraints(0.0<=w<=Infinity, h=4.0)
+                child 3: RenderSemanticsGestureHandler#cb702 NEEDS-LAYOUT NEEDS-PAINT NEEDS-COMPOSITING-BITS-UPDATE
+                    parentData: offset=Offset(0.0, 0.0); flex=null; fit=null
+                    constraints: MISSING
+                    size: MISSING
+                    behavior: deferToChild
+                    gestures: tap
+See also: https://flutter.dev/unbounded-constraints
+If none of the above helps enough to fix this problem, please don't hesitate to file a bug:
+  https://github.com/flutter/flutter/issues/new?template=2_bug.yml
+
+The relevant error-causing widget was:
+    Column Column:file:///Users/toompie/Projects/shyraq_ai/lib/features/practice/practice_screen.dart:14:16
+
+When the exception was thrown, this was the stack:
+#0      RenderFlex.performLayout.<anonymous closure> (package:flutter/src/rendering/flex.dart:1250:9)
+#1      RenderFlex.performLayout (package:flutter/src/rendering/flex.dart:1253:6)
+#2      RenderObject.layout (package:flutter/src/rendering/object.dart:2715:7)
+#3      RenderPadding.performLayout (package:flutter/src/rendering/shifted_box.dart:243:12)
+#4      RenderObject.layout (package:flutter/src/rendering/object.dart:2715:7)
+#5      _RenderSingleChildViewport.performLayout (package:flutter/src/widgets/single_child_scroll_view.dart:493:14)
+#6      RenderObject.layout (package:flutter/src/rendering/object.dart:2715:7)
+#7      RenderProxyBoxMixin.performLayout (package:flutter/src/rendering/proxy_box.dart:115:18)
+#8      RenderObject.layout (package:flutter/src/rendering/object.dart:2715:7)
+#9      RenderProxyBoxMixin.performLayout (package:flutter/src/rendering/proxy_box.dart:115:18)
+#10     RenderObject.layout (package:flutter/src/rendering/object.dart:2715:7)
+#11     RenderProxyBoxMixin.performLayout (package:flutter/src/rendering/proxy_box.dart:115:18)
+#12     RenderObject.layout (package:flutter/src/rendering/object.dart:2715:7)
+#13     RenderProxyBoxMixin.performLayout (package:flutter/src/rendering/proxy_box.dart:115:18)
+#14     RenderObject.layout (package:flutter/src/rendering/object.dart:2715:7)
+#15     RenderProxyBoxMixin.performLayout (package:flutter/src/rendering/proxy_box.dart:115:18)
+#16     RenderObject.layout (package:flutter/src/rendering/object.dart:2715:7)
+#17     RenderProxyBoxMixin.performLayout (package:flutter/src/rendering/proxy_box.dart:115:18)
+#18     RenderObject.layout (package:flutter/src/rendering/object.dart:2715:7)
+#19     MultiChildLayoutDelegate.layoutChild (package:flutter/src/rendering/custom_layout.dart:180:12)
+#20     _ScaffoldLayout.performLayout (package:flutter/src/material/scaffold.dart:1118:7)
+#21     MultiChildLayoutDelegate._callPerformLayout (package:flutter/src/rendering/custom_layout.dart:249:7)
+#22     RenderCustomMultiChildLayoutBox.performLayout (package:flutter/src/rendering/custom_layout.dart:419:14)
+#23     RenderObject.layout (package:flutter/src/rendering/object.dart:2715:7)
+#24     RenderProxyBoxMixin.performLayout (package:flutter/src/rendering/proxy_box.dart:115:18)
+#25     RenderObject.layout (package:flutter/src/rendering/object.dart:2715:7)
+#26     RenderProxyBoxMixin.performLayout (package:flutter/src/rendering/proxy_box.dart:115:18)
+#27     _RenderCustomClip.performLayout (package:flutter/src/rendering/proxy_box.dart:1483:11)
+#28     RenderObject.layout (package:flutter/src/rendering/object.dart:2715:7)
+#29     RenderPadding.performLayout (package:flutter/src/rendering/shifted_box.dart:243:12)
+#30     RenderObject.layout (package:flutter/src/rendering/object.dart:2715:7)
+#31     _RenderLayoutBuilder.performLayout (package:flutter/src/widgets/layout_builder.dart:392:14)
+#32     RenderObject.layout (package:flutter/src/rendering/object.dart:2715:7)
+#33     MultiChildLayoutDelegate.layoutChild (package:flutter/src/rendering/custom_layout.dart:180:12)
+#34     _ScaffoldLayout.performLayout (package:flutter/src/material/scaffold.dart:1118:7)
+#35     MultiChildLayoutDelegate._callPerformLayout (package:flutter/src/rendering/custom_layout.dart:249:7)
+#36     RenderCustomMultiChildLayoutBox.performLayout (package:flutter/src/rendering/custom_layout.dart:419:14)
+#37     RenderObject._layoutWithoutResize (package:flutter/src/rendering/object.dart:2548:7)
+#38     PipelineOwner.flushLayout (package:flutter/src/rendering/object.dart:1112:18)
+#39     PipelineOwner.flushLayout (package:flutter/src/rendering/object.dart:1125:15)
+#40     RendererBinding.drawFrame (package:flutter/src/rendering/binding.dart:616:23)
+#41     WidgetsBinding.drawFrame (package:flutter/src/widgets/binding.dart:1231:13)
+#42     RendererBinding._handlePersistentFrameCallback (package:flutter/src/rendering/binding.dart:482:5)
+#43     SchedulerBinding._invokeFrameCallback (package:flutter/src/scheduler/binding.dart:1442:15)
+#44     SchedulerBinding.handleDrawFrame (package:flutter/src/scheduler/binding.dart:1355:9)
+#45     SchedulerBinding._handleDrawFrame (package:flutter/src/scheduler/binding.dart:1208:5)
+#46     _invoke (dart:ui/hooks.dart:316:13)
+#47     PlatformDispatcher._drawFrame (dart:ui/platform_dispatcher.dart:428:5)
+#48     _drawFrame (dart:ui/hooks.dart:288:31)
+
+The following RenderObject was being processed when the exception was fired: RenderFlex#95a1d relayoutBoundary=up14 NEEDS-LAYOUT NEEDS-PAINT NEEDS-COMPOSITING-BITS-UPDATE
+    parentData: offset=Offset(0.0, 0.0) (can use size)
+    constraints: BoxConstraints(0.0<=w<=398.0, 0.0<=h<=Infinity)
+    size: MISSING
+    direction: vertical
+    mainAxisAlignment: start
+    mainAxisSize: max
+    crossAxisAlignment: center
+    verticalDirection: down
+    spacing: 0.0
+    child 1: RenderTransform#d7f0f NEEDS-LAYOUT NEEDS-PAINT NEEDS-COMPOSITING-BITS-UPDATE
+        parentData: offset=Offset(0.0, 0.0); flex=null; fit=null
+        constraints: MISSING
+        size: MISSING
+        transform matrix: [0] 1.0,0.0,0.0,0.0
+[1] 0.0,1.0,0.0,-12.0
+[2] 0.0,0.0,1.0,0.0
+[3] 0.0,0.0,0.0,1.0
+        origin: null
+        alignment: null
+        textDirection: ltr
+        transformHitTests: true
+        child: RenderParagraph#d7b3b NEEDS-LAYOUT NEEDS-PAINT
+            parentData: <none>
+            constraints: MISSING
+            size: MISSING
+            textAlign: start
+            textDirection: ltr
+            softWrap: wrapping at box width
+            overflow: clip
+            locale: en_US
+            maxLines: unlimited
+            text: TextSpan
+                debugLabel: ((englishLike bodyMedium 2021).merge((((blackCupertino bodyMedium).apply).apply).merge(unknown))).merge(unknown)
+                inherit: false
+                color: Color(alpha: 1.0000, red: 0.0275, green: 0.0275, blue: 0.0275, colorSpace: ColorSpace.sRGB)
+                family: Outfit
+                size: 54.0
+                weight: 500
+                letterSpacing: -2.0
+                baseline: alphabetic
+                height: 1.1x
+                leadingDistribution: even
+                decoration: Color(alpha: 1.0000, red: 0.0000, green: 0.0000, blue: 0.0000, colorSpace: ColorSpace.sRGB) TextDecoration.none
+                "Challenge your knowledge"
+    child 2: RenderConstrainedBox#a62d8 NEEDS-LAYOUT NEEDS-PAINT NEEDS-COMPOSITING-BITS-UPDATE
+        parentData: offset=Offset(0.0, 0.0); flex=null; fit=null
+        constraints: MISSING
+        size: MISSING
+        additionalConstraints: BoxConstraints(w=410.0, 0.0<=h<=Infinity)
+        child: RenderDecoratedBox#f800d NEEDS-LAYOUT NEEDS-PAINT NEEDS-COMPOSITING-BITS-UPDATE
+            parentData: <none>
+            constraints: MISSING
+            size: MISSING
+            decoration: BoxDecoration
+                color: Color(alpha: 1.0000, red: 0.0000, green: 0.0000, blue: 0.0000, colorSpace: ColorSpace.sRGB)
+                borderRadius: BorderRadius.circular(32.0)
+            configuration: ImageConfiguration(bundle: PlatformAssetBundle#4dbbf(), devicePixelRatio: 3.0, locale: en_US, textDirection: TextDirection.ltr, platform: iOS)
+            child: RenderPadding#587e2 NEEDS-LAYOUT NEEDS-PAINT NEEDS-COMPOSITING-BITS-UPDATE
+                parentData: <none>
+                constraints: MISSING
+                size: MISSING
+                padding: EdgeInsets.zero
+                textDirection: ltr
+                child: RenderPadding#e2f13 NEEDS-LAYOUT NEEDS-PAINT NEEDS-COMPOSITING-BITS-UPDATE
+                    parentData: offset=Offset(0.0, 0.0)
+                    constraints: MISSING
+                    size: MISSING
+                    padding: EdgeInsets.all(16.0)
+                    textDirection: ltr
+    child 3: RenderParagraph#f6ddb NEEDS-LAYOUT NEEDS-PAINT
+        parentData: offset=Offset(0.0, 0.0); flex=null; fit=null
+        constraints: MISSING
+        size: MISSING
+        textAlign: start
+        textDirection: ltr
+        softWrap: wrapping at box width
+        overflow: clip
+        locale: en_US
+        maxLines: unlimited
+        text: TextSpan
+            debugLabel: ((englishLike bodyMedium 2021).merge((((blackCupertino bodyMedium).apply).apply).merge(unknown))).merge(unknown)
+            inherit: false
+            color: Color(alpha: 0.5882, red: 0.0275, green: 0.0275, blue: 0.0275, colorSpace: ColorSpace.sRGB)
+            family: Outfit
+            size: 32.0
+            weight: 500
+            letterSpacing: -2.0
+            baseline: alphabetic
+            height: 1.1x
+            leadingDistribution: even
+            decoration: Color(alpha: 1.0000, red: 0.0000, green: 0.0000, blue: 0.0000, colorSpace: ColorSpace.sRGB) TextDecoration.none
+            "or"
+    child 4: RenderParagraph#74d3b NEEDS-LAYOUT NEEDS-PAINT
+        parentData: offset=Offset(0.0, 0.0); flex=null; fit=null
+        constraints: MISSING
+        size: MISSING
+        textAlign: start
+        textDirection: ltr
+        softWrap: wrapping at box width
+        overflow: clip
+        locale: en_US
+        maxLines: unlimited
+        text: TextSpan
+            debugLabel: ((englishLike bodyMedium 2021).merge((((blackCupertino bodyMedium).apply).apply).merge(unknown))).merge(unknown)
+            inherit: false
+            color: Color(alpha: 0.5882, red: 0.0275, green: 0.0275, blue: 0.0275, colorSpace: ColorSpace.sRGB)
+            family: Outfit
+            size: 32.0
+            weight: 500
+            letterSpacing: -2.0
+            baseline: alphabetic
+            height: 1.1x
+            leadingDistribution: even
+            decoration: Color(alpha: 1.0000, red: 0.0000, green: 0.0000, blue: 0.0000, colorSpace: ColorSpace.sRGB) TextDecoration.none
+            "Select question type"
+    child 5: RenderConstrainedBox#0fabc NEEDS-LAYOUT NEEDS-PAINT
+        parentData: offset=Offset(0.0, 0.0); flex=null; fit=null
+        constraints: MISSING
+        size: MISSING
+        additionalConstraints: BoxConstraints(0.0<=w<=Infinity, h=16.0)
+    child 6: RenderFlex#fc3a1 NEEDS-LAYOUT NEEDS-PAINT NEEDS-COMPOSITING-BITS-UPDATE
+        parentData: offset=Offset(0.0, 0.0); flex=1; fit=FlexFit.loose
+        constraints: MISSING
+        size: MISSING
+        direction: vertical
+        mainAxisAlignment: start
+        mainAxisSize: max
+        crossAxisAlignment: center
+        verticalDirection: down
+        spacing: 0.0
+        child 1: RenderFlex#04aa9 NEEDS-LAYOUT NEEDS-PAINT NEEDS-COMPOSITING-BITS-UPDATE
+            parentData: offset=Offset(0.0, 0.0); flex=null; fit=null
+            constraints: MISSING
+            size: MISSING
+            direction: horizontal
+            mainAxisAlignment: spaceAround
+            mainAxisSize: max
+            crossAxisAlignment: center
+            textDirection: ltr
+            verticalDirection: down
+            spacing: 0.0
+            child 1: RenderFlex#8c846 NEEDS-LAYOUT NEEDS-PAINT NEEDS-COMPOSITING-BITS-UPDATE
+                parentData: offset=Offset(0.0, 0.0); flex=null; fit=null
+                constraints: MISSING
+                size: MISSING
+                direction: vertical
+                mainAxisAlignment: start
+                mainAxisSize: max
+                crossAxisAlignment: center
+                verticalDirection: down
+                spacing: 0.0
+                child 1: RenderSemanticsGestureHandler#573a7 NEEDS-LAYOUT NEEDS-PAINT NEEDS-COMPOSITING-BITS-UPDATE
+                    parentData: offset=Offset(0.0, 0.0); flex=null; fit=null
+                    constraints: MISSING
+                    size: MISSING
+                    behavior: deferToChild
+                    gestures: tap
+                child 2: RenderConstrainedBox#a4421 NEEDS-LAYOUT NEEDS-PAINT
+                    parentData: offset=Offset(0.0, 0.0); flex=null; fit=null
+                    constraints: MISSING
+                    size: MISSING
+                    additionalConstraints: BoxConstraints(0.0<=w<=Infinity, h=4.0)
+                child 3: RenderSemanticsGestureHandler#0b725 NEEDS-LAYOUT NEEDS-PAINT NEEDS-COMPOSITING-BITS-UPDATE
+                    parentData: offset=Offset(0.0, 0.0); flex=null; fit=null
+                    constraints: MISSING
+                    size: MISSING
+                    behavior: deferToChild
+                    gestures: tap
+            child 2: RenderFlex#ea426 NEEDS-LAYOUT NEEDS-PAINT NEEDS-COMPOSITING-BITS-UPDATE
+                parentData: offset=Offset(0.0, 0.0); flex=null; fit=null
+                constraints: MISSING
+                size: MISSING
+                direction: vertical
+                mainAxisAlignment: start
+                mainAxisSize: max
+                crossAxisAlignment: center
+                verticalDirection: down
+                spacing: 0.0
+                child 1: RenderSemanticsGestureHandler#13cc7 NEEDS-LAYOUT NEEDS-PAINT NEEDS-COMPOSITING-BITS-UPDATE
+                    parentData: offset=Offset(0.0, 0.0); flex=null; fit=null
+                    constraints: MISSING
+                    size: MISSING
+                    behavior: deferToChild
+                    gestures: tap
+                child 2: RenderConstrainedBox#3c15e NEEDS-LAYOUT NEEDS-PAINT
+                    parentData: offset=Offset(0.0, 0.0); flex=null; fit=null
+                    constraints: MISSING
+                    size: MISSING
+                    additionalConstraints: BoxConstraints(0.0<=w<=Infinity, h=4.0)
+                child 3: RenderSemanticsGestureHandler#32412 NEEDS-LAYOUT NEEDS-PAINT NEEDS-COMPOSITING-BITS-UPDATE
+                    parentData: offset=Offset(0.0, 0.0); flex=null; fit=null
+                    constraints: MISSING
+                    size: MISSING
+                    behavior: deferToChild
+                    gestures: tap
+        child 2: RenderConstrainedBox#6f164 NEEDS-LAYOUT NEEDS-PAINT
+            parentData: offset=Offset(0.0, 0.0); flex=null; fit=null
+            constraints: MISSING
+            size: MISSING
+            additionalConstraints: BoxConstraints(0.0<=w<=Infinity, h=4.0)
+        child 3: RenderSemanticsGestureHandler#cb702 NEEDS-LAYOUT NEEDS-PAINT NEEDS-COMPOSITING-BITS-UPDATE
+            parentData: offset=Offset(0.0, 0.0); flex=null; fit=null
+            constraints: MISSING
+            size: MISSING
+            behavior: deferToChild
+            gestures: tap
+            child: RenderPointerListener#3d00c NEEDS-LAYOUT NEEDS-PAINT NEEDS-COMPOSITING-BITS-UPDATE
+                parentData: <none>
+                constraints: MISSING
+                size: MISSING
+                behavior: deferToChild
+                listeners: down, panZoomStart
+                child: RenderConstrainedBox#f769e NEEDS-LAYOUT NEEDS-PAINT NEEDS-COMPOSITING-BITS-UPDATE
+                    parentData: <none>
+                    constraints: MISSING
+                    size: MISSING
+                    additionalConstraints: BoxConstraints(w=410.0, 0.0<=h<=Infinity)
+RenderObject: RenderFlex#95a1d relayoutBoundary=up14 NEEDS-LAYOUT NEEDS-PAINT NEEDS-COMPOSITING-BITS-UPDATE
+    parentData: offset=Offset(0.0, 0.0) (can use size)
+    constraints: BoxConstraints(0.0<=w<=398.0, 0.0<=h<=Infinity)
+    size: MISSING
+    direction: vertical
+    mainAxisAlignment: start
+    mainAxisSize: max
+    crossAxisAlignment: center
+    verticalDirection: down
+    spacing: 0.0
+    child 1: RenderTransform#d7f0f NEEDS-LAYOUT NEEDS-PAINT NEEDS-COMPOSITING-BITS-UPDATE
+        parentData: offset=Offset(0.0, 0.0); flex=null; fit=null
+        constraints: MISSING
+        size: MISSING
+        transform matrix: [0] 1.0,0.0,0.0,0.0
+[1] 0.0,1.0,0.0,-12.0
+[2] 0.0,0.0,1.0,0.0
+[3] 0.0,0.0,0.0,1.0
+        origin: null
+        alignment: null
+        textDirection: ltr
+        transformHitTests: true
+        child: RenderParagraph#d7b3b NEEDS-LAYOUT NEEDS-PAINT
+            parentData: <none>
+            constraints: MISSING
+            size: MISSING
+            textAlign: start
+            textDirection: ltr
+            softWrap: wrapping at box width
+            overflow: clip
+            locale: en_US
+            maxLines: unlimited
+            text: TextSpan
+                debugLabel: ((englishLike bodyMedium 2021).merge((((blackCupertino bodyMedium).apply).apply).merge(unknown))).merge(unknown)
+                inherit: false
+                color: Color(alpha: 1.0000, red: 0.0275, green: 0.0275, blue: 0.0275, colorSpace: ColorSpace.sRGB)
+                family: Outfit
+                size: 54.0
+                weight: 500
+                letterSpacing: -2.0
+                baseline: alphabetic
+                height: 1.1x
+                leadingDistribution: even
+                decoration: Color(alpha: 1.0000, red: 0.0000, green: 0.0000, blue: 0.0000, colorSpace: ColorSpace.sRGB) TextDecoration.none
+                "Challenge your knowledge"
+    child 2: RenderConstrainedBox#a62d8 NEEDS-LAYOUT NEEDS-PAINT NEEDS-COMPOSITING-BITS-UPDATE
+        parentData: offset=Offset(0.0, 0.0); flex=null; fit=null
+        constraints: MISSING
+        size: MISSING
+        additionalConstraints: BoxConstraints(w=410.0, 0.0<=h<=Infinity)
+        child: RenderDecoratedBox#f800d NEEDS-LAYOUT NEEDS-PAINT NEEDS-COMPOSITING-BITS-UPDATE
+            parentData: <none>
+            constraints: MISSING
+            size: MISSING
+            decoration: BoxDecoration
+                color: Color(alpha: 1.0000, red: 0.0000, green: 0.0000, blue: 0.0000, colorSpace: ColorSpace.sRGB)
+                borderRadius: BorderRadius.circular(32.0)
+            configuration: ImageConfiguration(bundle: PlatformAssetBundle#4dbbf(), devicePixelRatio: 3.0, locale: en_US, textDirection: TextDirection.ltr, platform: iOS)
+            child: RenderPadding#587e2 NEEDS-LAYOUT NEEDS-PAINT NEEDS-COMPOSITING-BITS-UPDATE
+                parentData: <none>
+                constraints: MISSING
+                size: MISSING
+                padding: EdgeInsets.zero
+                textDirection: ltr
+                child: RenderPadding#e2f13 NEEDS-LAYOUT NEEDS-PAINT NEEDS-COMPOSITING-BITS-UPDATE
+                    parentData: offset=Offset(0.0, 0.0)
+                    constraints: MISSING
+                    size: MISSING
+                    padding: EdgeInsets.all(16.0)
+                    textDirection: ltr
+    child 3: RenderParagraph#f6ddb NEEDS-LAYOUT NEEDS-PAINT
+        parentData: offset=Offset(0.0, 0.0); flex=null; fit=null
+        constraints: MISSING
+        size: MISSING
+        textAlign: start
+        textDirection: ltr
+        softWrap: wrapping at box width
+        overflow: clip
+        locale: en_US
+        maxLines: unlimited
+        text: TextSpan
+            debugLabel: ((englishLike bodyMedium 2021).merge((((blackCupertino bodyMedium).apply).apply).merge(unknown))).merge(unknown)
+            inherit: false
+            color: Color(alpha: 0.5882, red: 0.0275, green: 0.0275, blue: 0.0275, colorSpace: ColorSpace.sRGB)
+            family: Outfit
+            size: 32.0
+            weight: 500
+            letterSpacing: -2.0
+            baseline: alphabetic
+            height: 1.1x
+            leadingDistribution: even
+            decoration: Color(alpha: 1.0000, red: 0.0000, green: 0.0000, blue: 0.0000, colorSpace: ColorSpace.sRGB) TextDecoration.none
+            "or"
+    child 4: RenderParagraph#74d3b NEEDS-LAYOUT NEEDS-PAINT
+        parentData: offset=Offset(0.0, 0.0); flex=null; fit=null
+        constraints: MISSING
+        size: MISSING
+        textAlign: start
+        textDirection: ltr
+        softWrap: wrapping at box width
+        overflow: clip
+        locale: en_US
+        maxLines: unlimited
+        text: TextSpan
+            debugLabel: ((englishLike bodyMedium 2021).merge((((blackCupertino bodyMedium).apply).apply).merge(unknown))).merge(unknown)
+            inherit: false
+            color: Color(alpha: 0.5882, red: 0.0275, green: 0.0275, blue: 0.0275, colorSpace: ColorSpace.sRGB)
+            family: Outfit
+            size: 32.0
+            weight: 500
+            letterSpacing: -2.0
+            baseline: alphabetic
+            height: 1.1x
+            leadingDistribution: even
+            decoration: Color(alpha: 1.0000, red: 0.0000, green: 0.0000, blue: 0.0000, colorSpace: ColorSpace.sRGB) TextDecoration.none
+            "Select question type"
+    child 5: RenderConstrainedBox#0fabc NEEDS-LAYOUT NEEDS-PAINT
+        parentData: offset=Offset(0.0, 0.0); flex=null; fit=null
+        constraints: MISSING
+        size: MISSING
+        additionalConstraints: BoxConstraints(0.0<=w<=Infinity, h=16.0)
+    child 6: RenderFlex#fc3a1 NEEDS-LAYOUT NEEDS-PAINT NEEDS-COMPOSITING-BITS-UPDATE
+        parentData: offset=Offset(0.0, 0.0); flex=1; fit=FlexFit.loose
+        constraints: MISSING
+        size: MISSING
+        direction: vertical
+        mainAxisAlignment: start
+        mainAxisSize: max
+        crossAxisAlignment: center
+        verticalDirection: down
+        spacing: 0.0
+        child 1: RenderFlex#04aa9 NEEDS-LAYOUT NEEDS-PAINT NEEDS-COMPOSITING-BITS-UPDATE
+            parentData: offset=Offset(0.0, 0.0); flex=null; fit=null
+            constraints: MISSING
+            size: MISSING
+            direction: horizontal
+            mainAxisAlignment: spaceAround
+            mainAxisSize: max
+            crossAxisAlignment: center
+            textDirection: ltr
+            verticalDirection: down
+            spacing: 0.0
+            child 1: RenderFlex#8c846 NEEDS-LAYOUT NEEDS-PAINT NEEDS-COMPOSITING-BITS-UPDATE
+                parentData: offset=Offset(0.0, 0.0); flex=null; fit=null
+                constraints: MISSING
+                size: MISSING
+                direction: vertical
+                mainAxisAlignment: start
+                mainAxisSize: max
+                crossAxisAlignment: center
+                verticalDirection: down
+                spacing: 0.0
+                child 1: RenderSemanticsGestureHandler#573a7 NEEDS-LAYOUT NEEDS-PAINT NEEDS-COMPOSITING-BITS-UPDATE
+                    parentData: offset=Offset(0.0, 0.0); flex=null; fit=null
+                    constraints: MISSING
+                    size: MISSING
+                    behavior: deferToChild
+                    gestures: tap
+                child 2: RenderConstrainedBox#a4421 NEEDS-LAYOUT NEEDS-PAINT
+                    parentData: offset=Offset(0.0, 0.0); flex=null; fit=null
+                    constraints: MISSING
+                    size: MISSING
+                    additionalConstraints: BoxConstraints(0.0<=w<=Infinity, h=4.0)
+                child 3: RenderSemanticsGestureHandler#0b725 NEEDS-LAYOUT NEEDS-PAINT NEEDS-COMPOSITING-BITS-UPDATE
+                    parentData: offset=Offset(0.0, 0.0); flex=null; fit=null
+                    constraints: MISSING
+                    size: MISSING
+                    behavior: deferToChild
+                    gestures: tap
+            child 2: RenderFlex#ea426 NEEDS-LAYOUT NEEDS-PAINT NEEDS-COMPOSITING-BITS-UPDATE
+                parentData: offset=Offset(0.0, 0.0); flex=null; fit=null
+                constraints: MISSING
+                size: MISSING
+                direction: vertical
+                mainAxisAlignment: start
+                mainAxisSize: max
+                crossAxisAlignment: center
+                verticalDirection: down
+                spacing: 0.0
+                child 1: RenderSemanticsGestureHandler#13cc7 NEEDS-LAYOUT NEEDS-PAINT NEEDS-COMPOSITING-BITS-UPDATE
+                    parentData: offset=Offset(0.0, 0.0); flex=null; fit=null
+                    constraints: MISSING
+                    size: MISSING
+                    behavior: deferToChild
+                    gestures: tap
+                child 2: RenderConstrainedBox#3c15e NEEDS-LAYOUT NEEDS-PAINT
+                    parentData: offset=Offset(0.0, 0.0); flex=null; fit=null
+                    constraints: MISSING
+                    size: MISSING
+                    additionalConstraints: BoxConstraints(0.0<=w<=Infinity, h=4.0)
+                child 3: RenderSemanticsGestureHandler#32412 NEEDS-LAYOUT NEEDS-PAINT NEEDS-COMPOSITING-BITS-UPDATE
+                    parentData: offset=Offset(0.0, 0.0); flex=null; fit=null
+                    constraints: MISSING
+                    size: MISSING
+                    behavior: deferToChild
+                    gestures: tap
+        child 2: RenderConstrainedBox#6f164 NEEDS-LAYOUT NEEDS-PAINT
+            parentData: offset=Offset(0.0, 0.0); flex=null; fit=null
+            constraints: MISSING
+            size: MISSING
+            additionalConstraints: BoxConstraints(0.0<=w<=Infinity, h=4.0)
+        child 3: RenderSemanticsGestureHandler#cb702 NEEDS-LAYOUT NEEDS-PAINT NEEDS-COMPOSITING-BITS-UPDATE
+            parentData: offset=Offset(0.0, 0.0); flex=null; fit=null
+            constraints: MISSING
+            size: MISSING
+            behavior: deferToChild
+            gestures: tap
+            child: RenderPointerListener#3d00c NEEDS-LAYOUT NEEDS-PAINT NEEDS-COMPOSITING-BITS-UPDATE
+                parentData: <none>
+                constraints: MISSING
+                size: MISSING
+                behavior: deferToChild
+                listeners: down, panZoomStart
+                child: RenderConstrainedBox#f769e NEEDS-LAYOUT NEEDS-PAINT NEEDS-COMPOSITING-BITS-UPDATE
+                    parentData: <none>
+                    constraints: MISSING
+                    size: MISSING
+                    additionalConstraints: BoxConstraints(w=410.0, 0.0<=h<=Infinity)
+════════════════════════════════════════════════════════════════════════════════
+
+════════ Exception caught by rendering library ═════════════════════════════════
+RenderBox was not laid out: RenderFlex#95a1d relayoutBoundary=up14 NEEDS-PAINT NEEDS-COMPOSITING-BITS-UPDATE
+'package:flutter/src/rendering/box.dart':
+Failed assertion: line 2251 pos 12: 'hasSize'
+The relevant error-causing widget was:
+    SingleChildScrollView SingleChildScrollView:file:///Users/toompie/Projects/shyraq_ai/lib/features/practice/practice_screen.dart:12:13
+════════════════════════════════════════════════════════════════════════════════
+
+════════ Exception caught by rendering library ═════════════════════════════════
+RenderBox was not laid out: RenderPadding#8ad5a relayoutBoundary=up13 NEEDS-PAINT NEEDS-COMPOSITING-BITS-UPDATE
+'package:flutter/src/rendering/box.dart':
+Failed assertion: line 2251 pos 12: 'hasSize'
+The relevant error-causing widget was:
+    SingleChildScrollView SingleChildScrollView:file:///Users/toompie/Projects/shyraq_ai/lib/features/practice/practice_screen.dart:12:13
+════════════════════════════════════════════════════════════════════════════════
+
+════════ Exception caught by rendering library ═════════════════════════════════
+RenderBox was not laid out: _RenderSingleChildViewport#f6c17 relayoutBoundary=up12 NEEDS-PAINT NEEDS-COMPOSITING-BITS-UPDATE
+'package:flutter/src/rendering/box.dart':
+Failed assertion: line 2251 pos 12: 'hasSize'
+The relevant error-causing widget was:
+    SingleChildScrollView SingleChildScrollView:file:///Users/toompie/Projects/shyraq_ai/lib/features/practice/practice_screen.dart:12:13
+════════════════════════════════════════════════════════════════════════════════
+
+════════ Exception caught by rendering library ═════════════════════════════════
+RenderBox was not laid out: RenderIgnorePointer#c4c3f relayoutBoundary=up11 NEEDS-PAINT NEEDS-COMPOSITING-BITS-UPDATE
+'package:flutter/src/rendering/box.dart':
+Failed assertion: line 2251 pos 12: 'hasSize'
+The relevant error-causing widget was:
+    SingleChildScrollView SingleChildScrollView:file:///Users/toompie/Projects/shyraq_ai/lib/features/practice/practice_screen.dart:12:13
+════════════════════════════════════════════════════════════════════════════════
+
+════════ Exception caught by rendering library ═════════════════════════════════
+RenderBox was not laid out: RenderSemanticsAnnotations#46a0f relayoutBoundary=up10 NEEDS-PAINT NEEDS-COMPOSITING-BITS-UPDATE
+'package:flutter/src/rendering/box.dart':
+Failed assertion: line 2251 pos 12: 'hasSize'
+The relevant error-causing widget was:
+    SingleChildScrollView SingleChildScrollView:file:///Users/toompie/Projects/shyraq_ai/lib/features/practice/practice_screen.dart:12:13
+════════════════════════════════════════════════════════════════════════════════
+
+════════ Exception caught by rendering library ═════════════════════════════════
+RenderBox was not laid out: RenderPointerListener#a33b5 relayoutBoundary=up9 NEEDS-PAINT NEEDS-COMPOSITING-BITS-UPDATE
+'package:flutter/src/rendering/box.dart':
+Failed assertion: line 2251 pos 12: 'hasSize'
+The relevant error-causing widget was:
+    SingleChildScrollView SingleChildScrollView:file:///Users/toompie/Projects/shyraq_ai/lib/features/practice/practice_screen.dart:12:13
+════════════════════════════════════════════════════════════════════════════════
+
+════════ Exception caught by rendering library ═════════════════════════════════
+RenderBox was not laid out: RenderSemanticsGestureHandler#520df relayoutBoundary=up8 NEEDS-PAINT NEEDS-COMPOSITING-BITS-UPDATE
+'package:flutter/src/rendering/box.dart':
+Failed assertion: line 2251 pos 12: 'hasSize'
+The relevant error-causing widget was:
+    SingleChildScrollView SingleChildScrollView:file:///Users/toompie/Projects/shyraq_ai/lib/features/practice/practice_screen.dart:12:13
+════════════════════════════════════════════════════════════════════════════════
+
+════════ Exception caught by rendering library ═════════════════════════════════
+RenderBox was not laid out: RenderPointerListener#a693c relayoutBoundary=up7 NEEDS-PAINT NEEDS-COMPOSITING-BITS-UPDATE
+'package:flutter/src/rendering/box.dart':
+Failed assertion: line 2251 pos 12: 'hasSize'
+The relevant error-causing widget was:
+    SingleChildScrollView SingleChildScrollView:file:///Users/toompie/Projects/shyraq_ai/lib/features/practice/practice_screen.dart:12:13
+════════════════════════════════════════════════════════════════════════════════
+
+════════ Exception caught by rendering library ═════════════════════════════════
+RenderBox was not laid out: _RenderScrollSemantics#0d920 relayoutBoundary=up6 NEEDS-PAINT NEEDS-COMPOSITING-BITS-UPDATE
+'package:flutter/src/rendering/box.dart':
+Failed assertion: line 2251 pos 12: 'hasSize'
+The relevant error-causing widget was:
+    Scaffold Scaffold:file:///Users/toompie/Projects/shyraq_ai/lib/features/practice/practice_screen.dart:10:12
+════════════════════════════════════════════════════════════════════════════════
+
+════════ Exception caught by rendering library ═════════════════════════════════
+RenderBox was not laid out: _RenderSingleChildViewport#f6c17 relayoutBoundary=up12 NEEDS-PAINT
+'package:flutter/src/rendering/box.dart':
+Failed assertion: line 2251 pos 12: 'hasSize'
+The relevant error-causing widget was:
+    SingleChildScrollView SingleChildScrollView:file:///Users/toompie/Projects/shyraq_ai/lib/features/practice/practice_screen.dart:12:13
+════════════════════════════════════════════════════════════════════════════════
+
+════════ Exception caught by scheduler library ═════════════════════════════════
+Updated layout information required for RenderTransform#d7f0f NEEDS-LAYOUT NEEDS-PAINT to calculate semantics.
+'package:flutter/src/rendering/object.dart':
+Failed assertion: line 3848 pos 12: '!_needsLayout'
+════════════════════════════════════════════════════════════════════════════════
+Restarted application in 652ms.
+
