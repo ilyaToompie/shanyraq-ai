@@ -8,19 +8,23 @@ class PracticeScreen extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      appBar: AppBar(centerTitle: false, title: Text("Practice")),
+      appBar: AppBar(
+        forceMaterialTransparency: true,
+        centerTitle: false,
+        title: const Text("Practice"),
+      ),
       body: SingleChildScrollView(
         padding: const EdgeInsets.all(16.0),
         child: Column(
           children: [
             Transform.translate(
               offset: const Offset(0, -12),
-              child: Text(
+              child: const Text(
                 "Challenge your knowledge",
                 style: TextStyle(fontSize: 54, letterSpacing: -2, height: 1.1),
               ),
             ),
-            AiChatButton(),
+            const AiChatButton(),
             Text(
               "or",
               style: TextStyle(
@@ -43,9 +47,9 @@ class PracticeScreen extends StatelessWidget {
                 height: 1.1,
               ),
             ),
-            SizedBox(height: 16),
+            const SizedBox(height: 16),
 
-            QuestionSelection(),
+            const QuestionSelection(),
           ],
         ),
       ),

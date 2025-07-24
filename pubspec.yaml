@@ -7,9 +7,13 @@ environment:
   sdk: ^3.7.2
 
 dependencies:
+  carousel_slider: ^5.1.1
   flutter:
     sdk: flutter
+  flutter_scroll_shadow: ^1.2.6
+  font_awesome_flutter: ^10.8.0
   google_nav_bar: ^5.0.7
+  info_widget: ^1.0.0
 
 dev_dependencies:
   flutter_test:
@@ -25,3 +29,5 @@ flutter:
         - asset: assets/fonts/Outfit/Outfit-Black.ttf
         - asset: assets/fonts/Outfit/Outfit-Light.ttf
         - asset: assets/fonts/Outfit/Outfit-Medium.ttf
+  assets:
+    - assets/

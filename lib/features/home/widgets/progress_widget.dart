@@ -18,7 +18,7 @@ class ProgressWidget extends StatelessWidget {
     return Container(
       width: MediaQuery.sizeOf(context).width / 2.2,
       decoration: BoxDecoration(
-        boxShadow: [BoxShadow(blurRadius: 4, offset: const Offset(2, 2))],
+        boxShadow: const [BoxShadow(blurRadius: 4, offset: Offset(2, 2))],
         borderRadius: BorderRadius.circular(48),
         color: Theme.of(context).colorScheme.onPrimary,
       ),
@@ -32,7 +32,7 @@ class ProgressWidget extends StatelessWidget {
               crossAxisAlignment: CrossAxisAlignment.baseline,
               textBaseline: TextBaseline.alphabetic,
               children: [
-                Text(completed.toString(), style: TextStyle(fontSize: 48)),
+                Text(completed.toString(), style: const TextStyle(fontSize: 48)),
                 Text(
                   " / $max $title",
                   style: TextStyle(

@@ -1,6 +1,8 @@
 import 'package:flutter/material.dart';
 
 class MoreDetailsButton extends StatelessWidget {
+  const MoreDetailsButton({super.key});
+
   @override
   Widget build(BuildContext context) {
     return TextButton(
@@ -20,7 +22,7 @@ class MoreDetailsButton extends StatelessWidget {
               "More Details",
               style: TextStyle(color: Theme.of(context).colorScheme.onPrimary),
             ),
-            SizedBox(width: 8),
+            const SizedBox(width: 8),
             Icon(
               Icons.arrow_circle_right_rounded,
               color: Theme.of(context).colorScheme.onPrimary,

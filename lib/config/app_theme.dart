@@ -8,11 +8,11 @@ class AppTheme {
       titleTextStyle: TextStyle(
         fontSize: 32,
         fontWeight: FontWeight.w300,
-        color: Color.fromRGBO(0, 0, 0, 1).withAlpha(200),
+        color: const Color.fromRGBO(0, 0, 0, 1).withAlpha(200),
       ),
     ),
     brightness: Brightness.light,
-    colorScheme: ColorScheme(
+    colorScheme: const ColorScheme(
       brightness: Brightness.light,
       primary: Color.fromRGBO(7, 7, 7, 1),
       onPrimary: Color.fromRGBO(255, 255, 255, 1),
@@ -46,7 +46,7 @@ class AppTheme {
   static ThemeData darkTheme = ThemeData(
     useMaterial3: true,
     brightness: Brightness.dark,
-    colorScheme: ColorScheme(
+    colorScheme: const ColorScheme(
       primary: Color.fromRGBO(51, 246, 153, 1),
       onPrimary: Color.fromRGBO(51, 246, 153, 1),
       secondary: Color.fromRGBO(84, 235, 255, 1),
@@ -70,7 +70,7 @@ class AppTheme {
       titleTextStyle: TextStyle(
         fontSize: 32,
         fontWeight: FontWeight.w300,
-        color: Color.fromRGBO(255, 255, 255, 1).withAlpha(200),
+        color: const Color.fromRGBO(255, 255, 255, 1).withAlpha(200),
       ),
     ),
   );

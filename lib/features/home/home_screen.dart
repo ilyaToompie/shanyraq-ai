@@ -14,66 +14,76 @@ class HomeScreen extends StatefulWidget {
 class _HomeScreenState extends State<HomeScreen> {
   @override
   Widget build(BuildContext context) {
-    return Scaffold(
-      appBar: AppBar(title: Text("Salem,\n#username!"), centerTitle: false),
-      body: Column(
-        children: [
-          Padding(
-            padding: const EdgeInsets.symmetric(horizontal: 18.0),
-            child: HomeScreenTitle(),
+    return SingleChildScrollView(
+      child: ConstrainedBox(
+        constraints: BoxConstraints(
+          maxHeight: MediaQuery.of(context).size.height,
+        ),
+        child: Scaffold(
+          appBar: AppBar(
+            title: const Text("Salem,\n#username!"),
+            centerTitle: false,
           ),
-          Padding(
-            padding: const EdgeInsets.symmetric(horizontal: 128.0),
-            child: Divider(),
-          ),
-          Padding(
-            padding: const EdgeInsets.symmetric(horizontal: 8.0),
-            child: Row(
-              spacing: 64,
-              mainAxisAlignment: MainAxisAlignment.center,
-              children: [
-                Padding(
-                  padding: const EdgeInsets.only(left: 24.0, bottom: 16),
-                  child: Column(
-                    children: [
-                      Row(
+          body: const Column(
+            children: [
+              Padding(
+                padding: EdgeInsets.symmetric(horizontal: 18.0),
+                child: HomeScreenTitle(),
+              ),
+              Padding(
+                padding: EdgeInsets.symmetric(horizontal: 128.0),
+                child: Divider(),
+              ),
+              Padding(
+                padding: EdgeInsets.symmetric(horizontal: 8.0),
+                child: Row(
+                  spacing: 64,
+                  mainAxisAlignment: MainAxisAlignment.center,
+                  children: [
+                    Padding(
+                      padding: EdgeInsets.only(left: 24.0, bottom: 16),
+                      child: Column(
                         children: [
-                          Text("?", style: TextStyle(fontSize: 48)),
-                          SizedBox(width: 8),
-                          Text("/ 100", style: TextStyle(fontSize: 33)),
+                          Row(
+                            children: [
+                              Text("?", style: TextStyle(fontSize: 48)),
+                              SizedBox(width: 8),
+                              Text("/ 100", style: TextStyle(fontSize: 33)),
+                            ],
+                          ),
+                          Text(
+                            "Your recent score",
+                            style: TextStyle(fontWeight: FontWeight.w200),
+                          ),
                         ],
                       ),
-                      Text(
-                        "Your recent score",
-                        style: TextStyle(fontWeight: FontWeight.w200),
-                      ),
-                    ],
-                  ),
+                    ),
+                    MoreDetailsButton(),
+                  ],
                 ),
-                MoreDetailsButton(),
-              ],
-            ),
-          ),
-          Row(
-            mainAxisAlignment: MainAxisAlignment.center,
-            children: [
-              ProgressWidget(
-                icon: Icons.school_rounded,
-                title: 'Topics',
-                max: 8,
-                completed: 2,
               ),
-              SizedBox(width: 12),
-              ProgressWidget(
-                icon: Icons.question_mark_rounded,
-                title: 'questions',
-                max: 8,
-                completed: 2,
+              Row(
+                mainAxisAlignment: MainAxisAlignment.center,
+                children: [
+                  ProgressWidget(
+                    icon: Icons.school_rounded,
+                    title: 'Topics',
+                    max: 8,
+                    completed: 2,
+                  ),
+                  SizedBox(width: 12),
+                  ProgressWidget(
+                    icon: Icons.question_mark_rounded,
+                    title: 'questions',
+                    max: 8,
+                    completed: 2,
+                  ),
+                ],
               ),
+              Padding(padding: EdgeInsets.all(16.0), child: ResultsWidget()),
             ],
           ),
-          Padding(padding: const EdgeInsets.all(16.0), child: ResultsWidget()),
-        ],
+        ),
       ),
     );
   }

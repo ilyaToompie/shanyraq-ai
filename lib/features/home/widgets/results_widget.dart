@@ -1,6 +1,8 @@
 import 'package:flutter/material.dart';
 
 class ResultsWidget extends StatefulWidget {
+  const ResultsWidget({super.key});
+
   @override
   State<ResultsWidget> createState() => _ResultsWidgetState();
 }
@@ -12,13 +14,13 @@ class _ResultsWidgetState extends State<ResultsWidget> {
   Widget build(BuildContext context) {
     return Container(
       decoration: BoxDecoration(
-        boxShadow: [BoxShadow(blurRadius: 4, offset: const Offset(2, 2))],
+        boxShadow: const [BoxShadow(blurRadius: 4, offset: Offset(2, 2))],
         borderRadius: BorderRadius.circular(48),
         color: Theme.of(context).colorScheme.onPrimary,
       ),
       child: Column(
         children: [
-          SizedBox(height: 8),
+          const SizedBox(height: 8),
           Row(
             mainAxisAlignment: MainAxisAlignment.center,
             children: [
@@ -111,8 +113,8 @@ class _ResultsWidgetState extends State<ResultsWidget> {
                     crossAxisAlignment: CrossAxisAlignment.baseline,
                     textBaseline: TextBaseline.alphabetic,
                     children: [
-                      SizedBox(width: 24),
-                      Text(
+                      const SizedBox(width: 24),
+                      const Text(
                         "3",
                         style: TextStyle(fontSize: 48),
                         textAlign: TextAlign.start,
@@ -126,8 +128,8 @@ class _ResultsWidgetState extends State<ResultsWidget> {
                           ).textTheme.bodyLarge!.color?.withAlpha(150),
                         ),
                       ),
-                      SizedBox(width: 8),
-                      Text(
+                      const SizedBox(width: 8),
+                      const Text(
                         "17",
                         style: TextStyle(fontSize: 48),
                         textAlign: TextAlign.start,
@@ -143,10 +145,10 @@ class _ResultsWidgetState extends State<ResultsWidget> {
                       ),
                     ],
                   ),
-                  Row(
+                  const Row(
                     children: [
                       Padding(
-                        padding: const EdgeInsets.only(right: 24.0),
+                        padding: EdgeInsets.only(right: 24.0),
                         child: Text(
                           "Overall time spend",
                           style: TextStyle(fontSize: 16),
@@ -166,8 +168,8 @@ class _ResultsWidgetState extends State<ResultsWidget> {
                       crossAxisAlignment: CrossAxisAlignment.baseline,
                       textBaseline: TextBaseline.alphabetic,
                       children: [
-                        SizedBox(width: 24),
-                        Text(
+                        const SizedBox(width: 24),
+                        const Text(
                           "3",
                           style: TextStyle(fontSize: 48),
                           textAlign: TextAlign.start,
@@ -181,7 +183,7 @@ class _ResultsWidgetState extends State<ResultsWidget> {
                             ).textTheme.bodyLarge!.color?.withAlpha(150),
                           ),
                         ),
-                        SizedBox(width: 8),
+                        const SizedBox(width: 8),
                         Text(
                           "17",
                           style: TextStyle(
@@ -194,8 +196,8 @@ class _ResultsWidgetState extends State<ResultsWidget> {
                         ),
                       ],
                     ),
-                    Padding(
-                      padding: const EdgeInsets.only(right: 24.0),
+                    const Padding(
+                      padding: EdgeInsets.only(right: 24.0),
                       child: Text(
                         "Variants solved",
                         style: TextStyle(fontSize: 16),
@@ -207,7 +209,7 @@ class _ResultsWidgetState extends State<ResultsWidget> {
               ),
               Transform.translate(
                 offset: const Offset(0, -16),
-                child: Row(
+                child: const Row(
                   mainAxisAlignment: MainAxisAlignment.spaceBetween,
                   children: [
                     Row(
@@ -223,7 +225,7 @@ class _ResultsWidgetState extends State<ResultsWidget> {
                       ],
                     ),
                     Padding(
-                      padding: const EdgeInsets.only(right: 24.0),
+                      padding: EdgeInsets.only(right: 24.0),
                       child: Text(
                         "Mistakes made",
                         style: TextStyle(fontSize: 16),

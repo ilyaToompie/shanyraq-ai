@@ -28,7 +28,7 @@ class _QuestionSelectionButtonState extends State<QuestionSelectionButton> {
                 ? Theme.of(context).colorScheme.primary
                 : Theme.of(context).colorScheme.primary.withAlpha(150),
       ),
-      duration: Duration(milliseconds: 200),
+      duration: const Duration(milliseconds: 200),
       child: Center(
         child: Padding(
           padding: const EdgeInsets.symmetric(vertical: 32.0),

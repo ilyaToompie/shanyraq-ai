@@ -12,7 +12,7 @@ class _PracticeMistakesButtonState extends State<PracticeMistakesButton> {
   @override
   Widget build(BuildContext context) {
     return AnimatedContainer(
-      duration: Duration(milliseconds: 100),
+      duration: const Duration(milliseconds: 100),
       decoration: BoxDecoration(
         borderRadius: BorderRadius.circular(32),
         color:
@@ -40,7 +40,7 @@ class _PracticeMistakesButtonState extends State<PracticeMistakesButton> {
                 ),
               ],
             ),
-            SizedBox(height: 4),
+            const SizedBox(height: 4),
             Row(
               children: [
                 Text(
@@ -51,7 +51,7 @@ class _PracticeMistakesButtonState extends State<PracticeMistakesButton> {
                 ),
               ],
             ),
-            SizedBox(height: 4),
+            const SizedBox(height: 4),
           ],
         ),
       ),

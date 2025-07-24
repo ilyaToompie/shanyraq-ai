@@ -1,5 +1,4 @@
 import 'package:flutter/material.dart';
-import 'package:shyraq_ai/features/learn/widgets/lessons_map_widget.dart';
 
 class LearnScreen extends StatelessWidget {
   const LearnScreen({super.key});
@@ -9,7 +8,7 @@ class LearnScreen extends StatelessWidget {
     return Scaffold(
       appBar: AppBar(
         scrolledUnderElevation: 0,
-        title: Text("Learn", style: TextStyle(fontSize: 42)),
+        title: const Text("Learn", style: TextStyle(fontSize: 42)),
         centerTitle: false,
       ),
       body: Padding(
@@ -18,7 +17,7 @@ class LearnScreen extends StatelessWidget {
           textBaseline: TextBaseline.alphabetic,
           crossAxisAlignment: CrossAxisAlignment.baseline,
           children: [
-            Text("Today's plan", style: TextStyle(fontSize: 48)),
+            const Text("Today's plan", style: TextStyle(fontSize: 48)),
             Text(
               "Look, we've selected lessons specialy for You!",
               style: TextStyle(
@@ -31,7 +30,7 @@ class LearnScreen extends StatelessWidget {
             SizedBox(
               width: MediaQuery.of(context).size.width / 1.1,
               height: MediaQuery.of(context).size.height / 2,
-              child: ListView(children: [
+              child: ListView(children: const [
                   
                 ],
               ),

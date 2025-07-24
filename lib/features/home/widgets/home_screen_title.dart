@@ -1,11 +1,13 @@
 import 'package:flutter/material.dart';
 
 class HomeScreenTitle extends StatelessWidget {
+  const HomeScreenTitle({super.key});
+
   @override
   Widget build(BuildContext context) {
     return Column(
       children: [
-        Row(
+        const Row(
           mainAxisAlignment: MainAxisAlignment.start,
           children: [
             Text(

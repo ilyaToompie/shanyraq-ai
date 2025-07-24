@@ -31,8 +31,8 @@ class _MainViewState extends State<MainView> {
         child: ClipRRect(
           borderRadius: BorderRadius.circular(48),
           child: GNav(
-            padding: EdgeInsets.all(20),
-            duration: Duration(milliseconds: 250),
+            padding: const EdgeInsets.symmetric(horizontal: 16, vertical: 20),
+            duration: const Duration(milliseconds: 250),
             gap: 8,
             backgroundColor: Theme.of(context).primaryColor,
             selectedIndex: _selectedIndex,

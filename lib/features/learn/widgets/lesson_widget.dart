@@ -15,7 +15,7 @@ class LessonWidget extends StatelessWidget {
         ),
         height: 200,
         width: 200,
-        child: Column(
+        child: const Column(
           children: [
             Row(children: [Text("data")]),
           ],

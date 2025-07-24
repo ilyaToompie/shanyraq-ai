@@ -35,7 +35,7 @@ class _QuestionSelectionState extends State<QuestionSelection> {
                       });
                     },
                   ),
-                  SizedBox(height: 4),
+                  const SizedBox(height: 4),
                   GestureDetector(
                     child: QuestionSelectionButton(
                       title: "Exam Number",
@@ -64,7 +64,7 @@ class _QuestionSelectionState extends State<QuestionSelection> {
                       });
                     },
                   ),
-                  SizedBox(height: 4),
+                  const SizedBox(height: 4),
                   GestureDetector(
                     child: QuestionSelectionButton(
                       title: "In a row",
@@ -81,7 +81,7 @@ class _QuestionSelectionState extends State<QuestionSelection> {
               ),
             ],
           ),
-          SizedBox(height: 4),
+          const SizedBox(height: 4),
           GestureDetector(
             child: PracticeMistakesButton(
               isSelected: _selectedIndex == 4 ? true : false,
