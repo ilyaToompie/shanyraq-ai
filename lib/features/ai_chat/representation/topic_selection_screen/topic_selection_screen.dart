@@ -61,7 +61,6 @@ class _TopicSelectionScreenState extends State<TopicSelectionScreen> {
               padding: const EdgeInsets.symmetric(vertical: 16, horizontal: 16),
               child: _buildLevelSelector(),
             ),
-
             //CustomTopicCreator(onCreate: (newTopic) {}),
             TopicCarousel(
               onIndexChanged: (int value) {

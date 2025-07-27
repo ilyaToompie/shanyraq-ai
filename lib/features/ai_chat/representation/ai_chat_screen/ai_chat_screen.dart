@@ -1,10 +1,9 @@
 import 'package:flutter/material.dart';
 import 'package:shyraq_ai/features/ai_chat/representation/ai_chat_screen/message.dart';
 import 'package:shyraq_ai/features/ai_chat/representation/ai_chat_screen/widgets/chat_list_view.dart';
-
-import 'package:shyraq_ai/features/ai_chat/representation/ai_chat_screen/widgets/chat_topic_widget.dart';
 import 'package:shyraq_ai/features/ai_chat/representation/ai_chat_screen/widgets/message_input_field.dart';
 import 'package:shyraq_ai/features/ai_chat/topic.dart';
+import 'package:shyraq_ai/features/ai_chat/widgets/topic_card.dart';
 
 class AiChatScreen extends StatefulWidget {
   final Topic topic;
@@ -82,7 +81,7 @@ class _AiChatScreenState extends State<AiChatScreen> {
         children: [
           Padding(
             padding: const EdgeInsets.all(8.0),
-            child: ChatTopicWidget(topic: widget.topic),
+            child: TopicCard(topic: widget.topic, index: null),
           ),
           Expanded(
             child: Container(

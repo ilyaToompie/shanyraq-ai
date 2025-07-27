@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:shyraq_ai/features/ai_chat/representation/topic_selection_screen/topic_selection_screen.dart';
 import 'package:shyraq_ai/shared/adaptive_navigator.dart';
+import 'package:font_awesome_flutter/font_awesome_flutter.dart';
 
 class AiChatButton extends StatelessWidget {
   const AiChatButton({super.key});
@@ -26,16 +27,29 @@ class AiChatButton extends StatelessWidget {
           child: Column(
             mainAxisAlignment: MainAxisAlignment.center,
             children: [
-              const Row(
+              Row(
                 children: [
-                  Text("Mistakes practice", style: TextStyle(fontSize: 30)),
+                  Padding(
+                    padding: const EdgeInsets.symmetric(horizontal: 14.0),
+                    child: FaIcon(
+                      FontAwesomeIcons.solidMessage,
+                      color: Theme.of(context).colorScheme.onPrimary,
+                    ),
+                  ),
+                  Text(
+                    "Chat with an AI",
+                    style: TextStyle(
+                      fontSize: 30,
+                      color: Theme.of(context).colorScheme.onPrimary,
+                    ),
+                  ),
                 ],
               ),
               const SizedBox(height: 4),
               Row(
                 children: [
                   Text(
-                    "Practive more the very exam exercices which\nyou're doing worse. You're gonna deal with it!",
+                    "Chat with an AI to practice dialogue! \nUse pre-made topics.",
                     style: TextStyle(
                       color: Theme.of(context).colorScheme.onPrimary,
                     ),

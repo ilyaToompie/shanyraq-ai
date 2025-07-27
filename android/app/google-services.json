@@ -1,0 +1,29 @@
+{
+  "project_info": {
+    "project_number": "373079762422",
+    "project_id": "shyraqai",
+    "storage_bucket": "shyraqai.firebasestorage.app"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:373079762422:android:b30721bafa31fbfd4c93d7",
+        "android_client_info": {
+          "package_name": "com.example.shyraq_ai"
+        }
+      },
+      "oauth_client": [],
+      "api_key": [
+        {
+          "current_key": "AIzaSyBEy0icPJDKytrmb7sg3XERPsmEfXoceqk"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": []
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}

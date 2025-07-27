@@ -3,6 +3,8 @@ import 'package:google_nav_bar/google_nav_bar.dart';
 import 'package:shyraq_ai/features/home/home_screen.dart';
 import 'package:shyraq_ai/features/learn/learn_screen.dart';
 import 'package:shyraq_ai/features/practice/practice_screen.dart';
+import 'package:shyraq_ai/features/social/profile_page/profile_screen.dart';
+import 'package:shyraq_ai/features/social/social_screen.dart';
 
 class MainView extends StatefulWidget {
   const MainView({super.key});
@@ -18,8 +20,8 @@ class _MainViewState extends State<MainView> {
     const HomeScreen(),
     const LearnScreen(),
     const PracticeScreen(),
-    const Text('Profile'),
-    const Text('Profile'),
+    const SocialScreen(),
+    const ProfileScreen(),
   ];
   @override
   Widget build(BuildContext context) {
@@ -78,7 +80,7 @@ class _MainViewState extends State<MainView> {
                 icon: Icons.favorite_rounded,
                 text: "Social",
               ),
-              GButton(
+              /*GButton(
                 textStyle: Theme.of(
                   context,
                 ).textTheme.bodyLarge?.copyWith(color: Colors.white),
@@ -86,7 +88,7 @@ class _MainViewState extends State<MainView> {
                 iconActiveColor: Colors.white,
                 icon: Icons.people_rounded,
                 text: "Profile",
-              ),
+              ),*/
             ],
           ),
         ),

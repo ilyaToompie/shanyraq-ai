@@ -14,19 +14,6 @@ class _CustomTopicCreatorState extends State<CustomTopicCreator> {
   final _titleController = TextEditingController();
   final _descController = TextEditingController();
 
-  /*
-  void _submit() {
-    final title = _titleController.text.trim();
-    final desc = _descController.text.trim();
-
-    if (title.isEmpty || desc.isEmpty) return;
-
-    widget.onCreate(Topic(title: title, description: desc));
-
-    _titleController.clear();
-    _descController.clear();
-  }*/
-
   @override
   Widget build(BuildContext context) {
     return Container(
