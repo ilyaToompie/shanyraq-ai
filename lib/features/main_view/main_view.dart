@@ -2,8 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:google_nav_bar/google_nav_bar.dart';
 import 'package:shyraq_ai/features/home/home_screen.dart';
 import 'package:shyraq_ai/features/learn/learn_screen.dart';
-import 'package:shyraq_ai/features/practice/practice_screen.dart';
-import 'package:shyraq_ai/features/social/profile_page/profile_screen.dart';
+import 'package:shyraq_ai/features/practice/presentation/practice_setup_screen/practice_setup_screen.dart';
 import 'package:shyraq_ai/features/social/social_screen.dart';
 
 class MainView extends StatefulWidget {
@@ -19,9 +18,8 @@ class _MainViewState extends State<MainView> {
   final List<Widget> _bottomNavBarScreens = <Widget>[
     const HomeScreen(),
     const LearnScreen(),
-    const PracticeScreen(),
+    const PracticeSetupScreen(),
     const SocialScreen(),
-    const ProfileScreen(),
   ];
   @override
   Widget build(BuildContext context) {

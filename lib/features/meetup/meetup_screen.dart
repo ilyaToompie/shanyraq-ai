@@ -1,12 +1,10 @@
 import 'package:flutter/material.dart';
 
-class MeetupScreen extends StatelessWidget {
-  const MeetupScreen({super.key});
+class MeetupsListScreen extends StatelessWidget {
+  const MeetupsListScreen({super.key});
 
   @override
   Widget build(BuildContext context) {
-    final color = Theme.of(context).colorScheme;
-
     return Scaffold(
       appBar: AppBar(title: const Text('Meetups')),
       body: const SingleChildScrollView(

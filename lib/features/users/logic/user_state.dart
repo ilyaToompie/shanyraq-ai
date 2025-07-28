@@ -4,15 +4,15 @@ abstract class UserState {}
 
 class UserInitial extends UserState {}
 
-class UserLoading extends UserState {}
+class UsersLoading extends UserState {}
 
 class UsersLoaded extends UserState {
-  final List<User> users;
+  final List<AppUser> users;
   UsersLoaded(this.users);
 }
 
 class UserLoaded extends UserState {
-  final User user;
+  final AppUser user;
   UserLoaded(this.user);
 }
 

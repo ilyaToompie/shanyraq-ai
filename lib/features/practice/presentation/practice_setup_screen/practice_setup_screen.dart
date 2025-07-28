@@ -1,9 +1,9 @@
 import 'package:flutter/material.dart';
-import 'package:shyraq_ai/features/practice/widgets/ai_chat_button.dart';
-import 'package:shyraq_ai/features/practice/widgets/question_selection.dart';
+import 'package:shyraq_ai/features/practice/presentation/practice_setup_screen/widgets/ai_chat_button.dart';
+import 'package:shyraq_ai/features/practice/presentation/practice_setup_screen/widgets/question_selection.dart';
 
-class PracticeScreen extends StatelessWidget {
-  const PracticeScreen({super.key});
+class PracticeSetupScreen extends StatelessWidget {
+  const PracticeSetupScreen({super.key});
 
   @override
   Widget build(BuildContext context) {

@@ -10,10 +10,12 @@ dependencies:
   bloc: ^9.0.0
   carousel_slider: ^5.1.1
   cloud_firestore: ^5.6.12
+  email_validator: ^3.0.0
   firebase_auth: ^5.7.0
   firebase_core: ^3.15.2
   flutter:
     sdk: flutter
+  flutter_bloc: ^9.1.1
   flutter_scroll_shadow: ^1.2.6
   font_awesome_flutter: ^10.8.0
   google_nav_bar: ^5.0.7
@@ -35,3 +37,5 @@ flutter:
         - asset: assets/fonts/Outfit/Outfit-Medium.ttf
   assets:
     - assets/
+    - assets/problems/
+    - assets/problems/practicing/

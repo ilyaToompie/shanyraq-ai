@@ -1,37 +1,59 @@
-import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutter/material.dart';
+import 'package:shyraq_ai/features/auth/auth_screen.dart';
 import 'package:shyraq_ai/features/social/profile_page/profile_screen.dart';
+import 'package:shyraq_ai/features/users/domain/user.dart';
 import 'package:shyraq_ai/shared/adaptive_navigator.dart';
 
 class ProfileButton extends StatelessWidget {
-  const ProfileButton({super.key});
+  final AppUser? user;
+  const ProfileButton({super.key, required this.user});
 
   @override
   Widget build(BuildContext context) {
-    if (FirebaseAuth.instance.currentUser != null) {
-      return GestureDetector(
-        child: const CircleAvatar(
-          radius: 24,
-          foregroundImage: const AssetImage('assets/avatar.png'),
-        ),
-        onTap: () {
-          adaptiveNavigatorPush(
-            context: context,
-            builder: (context) => const ProfileScreen(),
+    return FutureBuilder<AppUser?>(
+      future: loadUser(),
+      builder: (context, snapshot) {
+        if (snapshot.connectionState == ConnectionState.waiting) {
+          return const CircleAvatar(
+            minRadius: 16,
+            maxRadius: 24,
+            child: CircularProgressIndicator(),
           );
-        },
-      );
-    }
-    return GestureDetector(
-      child: const CircleAvatar(
-        radius: 24,
-        foregroundImage: const AssetImage('assets/avatar.png'),
-      ),
-      onTap: () {
-        adaptiveNavigatorPush(
-          context: context,
-          builder: (context) => const ProfileScreen(),
-        );
+        }
+        if (user == null) {
+          return GestureDetector(
+            onTap: () {
+              adaptiveNavigatorPush(
+                context: context,
+                builder: (_) => const AuthScreen(),
+              );
+            },
+            child: const CircleAvatar(
+              minRadius: 22,
+              maxRadius: 22,
+
+              foregroundImage:
+                  const AssetImage('assets/avatar.png') as ImageProvider,
+            ),
+          );
+        } else {
+          return GestureDetector(
+            onTap: () {
+              adaptiveNavigatorPush(
+                context: context,
+                builder: (_) => ProfileScreen(user: user!),
+              );
+            },
+            child: CircleAvatar(
+              minRadius: 22,
+              maxRadius: 22,
+              foregroundImage:
+                  (user!.avatarUri == "")
+                      ? const AssetImage('assets/avatar.png') as ImageProvider
+                      : NetworkImage(user!.avatarUri),
+            ),
+          );
+        }
       },
     );
   }

@@ -1,150 +1,86 @@
+import 'package:cloud_firestore/cloud_firestore.dart';
+import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutter/material.dart';
+import 'package:shyraq_ai/features/main_view/main_view.dart';
+import 'package:shyraq_ai/features/social/widgets/friend_toggle_button.dart';
+import 'package:shyraq_ai/features/social/widgets/friends_list.dart';
+import 'package:shyraq_ai/features/users/domain/user.dart';
 
-class ProfileScreen extends StatefulWidget {
-  const ProfileScreen({Key? key}) : super(key: key);
+class ProfileScreen extends StatelessWidget {
+  final AppUser user;
 
-  @override
-  State<ProfileScreen> createState() => _ProfileScreenState();
-}
+  const ProfileScreen({required this.user, super.key});
 
-class _ProfileScreenState extends State<ProfileScreen> {
-  bool showAlmatyLeaderboard = true;
+  Future<List<AppUser>> fetchFriends(List<String> uids) async {
+    final firestore = FirebaseFirestore.instance;
 
-  final List<String> friends = ['Aruzhan', 'Dias', 'Alisher', 'Zhanel'];
+    final futures = uids.map((uid) async {
+      final doc = await firestore.collection('users').doc(uid).get();
+      if (doc.exists) {
+        return AppUser.fromFirestore(doc);
+      }
+      return null;
+    });
 
-  final List<Map<String, dynamic>> almatyLeaderboard = [
-    {'name': 'Erzat', 'xp': 1520},
-    {'name': 'Nurik', 'xp': 1490},
-    {'name': 'Aliya', 'xp': 1420},
-  ];
-
-  final List<Map<String, dynamic>> kazakhstanLeaderboard = [
-    {'name': 'Samat', 'xp': 2100},
-    {'name': 'Dana', 'xp': 2020},
-    {'name': 'Timur', 'xp': 2000},
-  ];
+    final results = await Future.wait(futures);
+    return results.whereType<AppUser>().toList();
+  }
 
   @override
   Widget build(BuildContext context) {
-    final currentLeaderboard =
-        showAlmatyLeaderboard ? almatyLeaderboard : kazakhstanLeaderboard;
+    final avatar =
+        user.avatarUri.isEmpty ? 'assets/avatar.png' : user.avatarUri;
 
     return Scaffold(
-      appBar: AppBar(title: const Text('Profile'), centerTitle: true),
-      body: Padding(
-        padding: const EdgeInsets.all(16),
-        child: Column(
-          children: [
-            _buildAvatarSection(),
-            const SizedBox(height: 24),
-            _buildFriendsSection(),
-            const SizedBox(height: 24),
-            _buildLeaderboardToggle(),
-            const SizedBox(height: 12),
-            _buildLeaderboard(currentLeaderboard),
-          ],
-        ),
-      ),
-    );
-  }
-
-  Widget _buildAvatarSection() {
-    return Row(
-      children: [
-        const CircleAvatar(
-          radius: 40,
-          backgroundImage: AssetImage('assets/avatar.png'),
-        ),
-        const SizedBox(width: 16),
-        Column(
-          crossAxisAlignment: CrossAxisAlignment.start,
-          children: const [
-            Text(
-              'Your Name',
-              style: TextStyle(fontSize: 20, fontWeight: FontWeight.bold),
+      appBar: AppBar(
+        title: const Text("Profile"),
+        actions: [
+          if (FirebaseAuth.instance.currentUser != null)
+            Row(
+              children: [
+                if (user.id != FirebaseAuth.instance.currentUser!.uid)
+                  FriendToggleButton(user: user),
+                if (user.id == FirebaseAuth.instance.currentUser!.uid)
+                  IconButton(
+                    icon: const Icon(Icons.logout),
+                    onPressed: () async {
+                      await FirebaseAuth.instance.signOut();
+                      if (context.mounted) {
+                        Navigator.of(context).pushReplacement(
+                          MaterialPageRoute(builder: (_) => const MainView()),
+                        );
+                      }
+                    },
+                  ),
+              ],
             ),
-            Text('XP: 1280'),
-          ],
-        ),
-      ],
-    );
-  }
 
-  Widget _buildFriendsSection() {
-    return Column(
-      crossAxisAlignment: CrossAxisAlignment.start,
-      children: [
-        const Text(
-          'Friends',
-          style: TextStyle(fontSize: 18, fontWeight: FontWeight.bold),
-        ),
-        const SizedBox(height: 8),
-        SizedBox(
-          height: 60,
-          child: ListView.builder(
-            scrollDirection: Axis.horizontal,
-            itemCount: friends.length,
-            itemBuilder: (context, index) {
-              return Container(
-                margin: const EdgeInsets.only(right: 12),
-                padding: const EdgeInsets.all(12),
-                decoration: BoxDecoration(
-                  color: Colors.blue[50],
-                  borderRadius: BorderRadius.circular(12),
-                ),
-                child: Center(child: Text(friends[index])),
-              );
-            },
+          const SizedBox(width: 8),
+        ],
+      ),
+      body: Column(
+        children: [
+          const SizedBox(height: 24),
+          CircleAvatar(
+            radius: 48,
+            backgroundImage:
+                avatar.startsWith('http')
+                    ? NetworkImage(avatar)
+                    : AssetImage(avatar) as ImageProvider,
           ),
-        ),
-      ],
-    );
-  }
-
-  Widget _buildLeaderboardToggle() {
-    return Row(
-      mainAxisAlignment: MainAxisAlignment.center,
-      children: [
-        _buildToggleButton('Almaty', true),
-        const SizedBox(width: 12),
-        _buildToggleButton('Kazakhstan', false),
-      ],
-    );
-  }
-
-  Widget _buildToggleButton(String title, bool isAlmaty) {
-    final isSelected = (showAlmatyLeaderboard == isAlmaty);
-    return ElevatedButton(
-      onPressed: () {
-        setState(() {
-          showAlmatyLeaderboard = isAlmaty;
-        });
-      },
-      style: ElevatedButton.styleFrom(
-        backgroundColor: isSelected ? Colors.blue : Colors.grey[300],
-        foregroundColor: isSelected ? Colors.white : Colors.black,
-      ),
-      child: Text(title),
-    );
-  }
-
-  Widget _buildLeaderboard(List<Map<String, dynamic>> data) {
-    return Expanded(
-      child: ListView.separated(
-        itemCount: data.length,
-        separatorBuilder: (_, __) => const Divider(),
-        itemBuilder: (context, index) {
-          final user = data[index];
-          return ListTile(
-            leading: CircleAvatar(
-              child: Text('${index + 1}'),
-              backgroundColor: Colors.blueAccent,
-              foregroundColor: Colors.white,
+          const SizedBox(height: 12),
+          Text(
+            user.username,
+            style: const TextStyle(fontSize: 20, fontWeight: FontWeight.bold),
+          ),
+          Text("XP: ${user.xp}"),
+          const SizedBox(height: 16),
+          if (FirebaseAuth.instance.currentUser != null)
+            Padding(
+              padding: const EdgeInsets.symmetric(horizontal: 16.0),
+              child: FriendsList(user: user),
             ),
-            title: Text(user['name']),
-            trailing: Text('${user['xp']} XP'),
-          );
-        },
+        ],
       ),
     );
   }

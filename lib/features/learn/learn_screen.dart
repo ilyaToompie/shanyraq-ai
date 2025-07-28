@@ -1,4 +1,5 @@
 import 'dart:convert';
+
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart' show rootBundle;
 
@@ -52,12 +53,11 @@ class _LearnScreenState extends State<LearnScreen> {
           Padding(
             padding: const EdgeInsets.symmetric(horizontal: 16.0),
             child: Column(
-              textBaseline: TextBaseline.alphabetic,
-              crossAxisAlignment: CrossAxisAlignment.baseline,
+              crossAxisAlignment: CrossAxisAlignment.start,
               children: [
                 const Text("Today's plan", style: TextStyle(fontSize: 48)),
                 Text(
-                  "Look, we've selected lessons specialy for You!",
+                  "Look, we've selected lessons specially for You!",
                   style: TextStyle(fontSize: 25, color: textColor),
                 ),
                 const SizedBox(height: 24),
@@ -126,7 +126,6 @@ class _LearnScreenState extends State<LearnScreen> {
             ),
           ),
 
-          /// Bottom popup panel with lesson info
           AnimatedPositioned(
             duration: const Duration(milliseconds: 250),
             curve: Curves.easeOut,
@@ -183,11 +182,9 @@ class _LearnScreenState extends State<LearnScreen> {
                             ),
                             const SizedBox(height: 20),
                             ElevatedButton(
-                              onPressed: null,
+                              onPressed: () {},
                               style: ElevatedButton.styleFrom(
                                 backgroundColor: Colors.blue,
-                                disabledBackgroundColor: Colors.blue
-                                    .withOpacity(0.6),
                                 padding: const EdgeInsets.symmetric(
                                   vertical: 16,
                                 ),

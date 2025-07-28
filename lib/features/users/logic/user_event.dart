@@ -20,3 +20,5 @@ class DeleteUser extends UserEvent {
   final String userId;
   DeleteUser(this.userId);
 }
+
+class LoadCurrentUser extends UserEvent {}

@@ -22,7 +22,7 @@ class _PracticeMistakesButtonState extends State<PracticeMistakesButton> {
       ),
       width: MediaQuery.of(context).size.width - 20,
       child: Padding(
-        padding: const EdgeInsets.all(16.0),
+        padding: const EdgeInsets.all(14.0),
         child: Column(
           mainAxisAlignment: MainAxisAlignment.center,
           children: [
@@ -51,7 +51,6 @@ class _PracticeMistakesButtonState extends State<PracticeMistakesButton> {
                 ),
               ],
             ),
-            const SizedBox(height: 4),
           ],
         ),
       ),
