@@ -1,3 +1,4 @@
+import 'package:easy_localization/easy_localization.dart';
 import 'package:flutter/material.dart';
 
 class HomeScreenTitle extends StatelessWidget {
@@ -7,11 +8,11 @@ class HomeScreenTitle extends StatelessWidget {
   Widget build(BuildContext context) {
     return Column(
       children: [
-        const Row(
+        Row(
           mainAxisAlignment: MainAxisAlignment.start,
           children: [
             Text(
-              "Kazakh tili",
+              "kazakh-tili".tr(),
               textAlign: TextAlign.start,
               style: TextStyle(fontSize: 35),
             ),
@@ -23,9 +24,9 @@ class HomeScreenTitle extends StatelessWidget {
             mainAxisAlignment: MainAxisAlignment.start,
             children: [
               Text(
-                "Exam Preparation",
+                "exam-preparation".tr(),
                 style: TextStyle(
-                  fontSize: 35,
+                  fontSize: 30,
                   color: Theme.of(
                     context,
                   ).textTheme.bodyLarge!.color!.withAlpha(180),

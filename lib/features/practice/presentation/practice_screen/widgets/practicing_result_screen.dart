@@ -1,3 +1,4 @@
+import 'package:easy_localization/easy_localization.dart';
 import 'package:flutter/material.dart';
 
 class PracticeResultScreen extends StatelessWidget {
@@ -8,13 +9,13 @@ class PracticeResultScreen extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      appBar: AppBar(title: const Text("Нәтиже")),
+      appBar: AppBar(title: Text("result-title".tr())),
       body: Center(
         child: Column(
           mainAxisAlignment: MainAxisAlignment.center,
           children: [
             Text(
-              "Сенің нәтижең:",
+              "your-result".tr(),
               style: Theme.of(context).textTheme.headlineMedium,
             ),
             const SizedBox(height: 20),
@@ -25,7 +26,7 @@ class PracticeResultScreen extends StatelessWidget {
             const SizedBox(height: 40),
             ElevatedButton(
               onPressed: () => Navigator.pop(context),
-              child: const Text("Қайтадан бастау"),
+              child: Text("restart".tr()),
             ),
           ],
         ),

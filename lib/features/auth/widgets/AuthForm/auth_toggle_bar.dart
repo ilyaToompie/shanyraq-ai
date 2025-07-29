@@ -1,3 +1,4 @@
+import 'package:easy_localization/easy_localization.dart';
 import 'package:flutter/cupertino.dart';
 
 class AuthToggleBar extends StatelessWidget {
@@ -15,14 +16,14 @@ class AuthToggleBar extends StatelessWidget {
     return CupertinoSlidingSegmentedControl<bool>(
       groupValue: isLogin,
       onValueChanged: (v) => onToggle(),
-      children: const {
+      children: {
         true: Padding(
-          padding: EdgeInsets.symmetric(horizontal: 12, vertical: 6),
-          child: Text('Login'),
+          padding: const EdgeInsets.symmetric(horizontal: 12, vertical: 6),
+          child: Text('login'.tr()),
         ),
         false: Padding(
-          padding: EdgeInsets.symmetric(horizontal: 12, vertical: 6),
-          child: Text('Register'),
+          padding: const EdgeInsets.symmetric(horizontal: 12, vertical: 6),
+          child: Text('register'.tr()),
         ),
       },
     );

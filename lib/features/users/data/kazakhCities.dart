@@ -1,4 +1,5 @@
-const Map<String, Map<String, String>> kazakhstanCities = {
+// ignore: file_names, constant_identifier_names
+const Map<String, Map<String, String>> kazakhstan_cities = {
   'almaty': {'en': 'Almaty', 'ru': 'Алматы', 'kk': 'Алматы'},
   'nur_sultan': {'en': 'Nur-Sultan', 'ru': 'Нур-Султан', 'kk': 'Нұр-Сұлтан'},
   'shymkent': {'en': 'Shymkent', 'ru': 'Шымкент', 'kk': 'Шымкент'},

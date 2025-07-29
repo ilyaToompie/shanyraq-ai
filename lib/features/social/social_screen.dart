@@ -1,3 +1,4 @@
+import 'package:easy_localization/easy_localization.dart';
 import 'package:flutter/material.dart';
 import 'package:shyraq_ai/features/meetup/meetup_screen.dart';
 import 'package:shyraq_ai/features/social/widgets/friends_list.dart';
@@ -18,12 +19,14 @@ class SocialScreen extends StatelessWidget {
       builder: (context, snapshot) {
         return Scaffold(
           appBar: AppBar(
+            automaticallyImplyLeading: false,
+
             scrolledUnderElevation: 0,
             actions: [
               ProfileButton(user: snapshot.data),
               const SizedBox(width: 16),
             ],
-            title: const Text('Social'),
+            title: Text('social'.tr()),
             foregroundColor: color.onPrimary,
           ),
           body: SingleChildScrollView(
@@ -55,20 +58,22 @@ class SocialHeaderCard extends StatelessWidget {
     final color = Theme.of(context).colorScheme;
 
     return Container(
+      width: MediaQuery.of(context).size.width - 20,
       padding: const EdgeInsets.all(16),
       decoration: BoxDecoration(
+        boxShadow: const [BoxShadow(blurRadius: 4)],
         color: color.secondaryContainer,
         borderRadius: BorderRadius.circular(16),
       ),
-      child: const Column(
+      child: Column(
         crossAxisAlignment: CrossAxisAlignment.start,
         children: [
           Text(
-            'Connect & Learn',
+            'connect-n-learn'.tr(),
             style: TextStyle(fontSize: 20, fontWeight: FontWeight.bold),
           ),
           SizedBox(height: 8),
-          Text('Meet with others who want to practice languages'),
+          Text('connect-n-learn-desc'.tr()),
         ],
       ),
     );
@@ -95,7 +100,7 @@ class MeetupsButton extends StatelessWidget {
         minimumSize: const Size.fromHeight(50),
         shape: RoundedRectangleBorder(borderRadius: BorderRadius.circular(12)),
       ),
-      child: const Text('Find Meetups'),
+      child: Text('find-meetups'.tr()),
     );
   }
 }

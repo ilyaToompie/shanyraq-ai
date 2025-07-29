@@ -1,3 +1,4 @@
+import 'package:easy_localization/easy_localization.dart';
 import 'package:flutter/material.dart';
 
 class ResultsWidget extends StatefulWidget {
@@ -21,82 +22,22 @@ class _ResultsWidgetState extends State<ResultsWidget> {
       child: Column(
         children: [
           const SizedBox(height: 8),
-          Row(
-            mainAxisAlignment: MainAxisAlignment.center,
-            children: [
-              TextButton(
-                onPressed: () {
-                  setState(() {
-                    _pageIndex = 0;
-                  });
-                },
-                child: Text(
-                  "Grammar",
-                  style: TextStyle(
-                    color:
-                        _pageIndex == 0
-                            ? Theme.of(context).textTheme.bodyLarge?.color
-                            : Theme.of(
-                              context,
-                            ).textTheme.bodyLarge?.color!.withAlpha(50),
-                  ),
-                ),
+          Padding(
+            padding: const EdgeInsets.symmetric(horizontal: 8.0),
+            child: SingleChildScrollView(
+              scrollDirection: Axis.horizontal,
+              child: Row(
+                mainAxisAlignment: MainAxisAlignment.center,
+                children: [
+                  SizedBox(width: 8),
+                  _buildTabButton(context, "grammar", 0),
+                  _buildTabButton(context, "vocabulary", 1),
+                  _buildTabButton(context, "listening", 2),
+                  _buildTabButton(context, "speaking", 3),
+                  SizedBox(width: 8),
+                ],
               ),
-              TextButton(
-                onPressed: () {
-                  setState(() {
-                    _pageIndex = 1;
-                  });
-                },
-                child: Text(
-                  "Vocabulary",
-                  style: TextStyle(
-                    color:
-                        _pageIndex == 1
-                            ? Theme.of(context).textTheme.bodyLarge?.color
-                            : Theme.of(
-                              context,
-                            ).textTheme.bodyLarge?.color!.withAlpha(50),
-                  ),
-                ),
-              ),
-              TextButton(
-                onPressed: () {
-                  setState(() {
-                    _pageIndex = 2;
-                  });
-                },
-                child: Text(
-                  "Listening",
-                  style: TextStyle(
-                    color:
-                        _pageIndex == 2
-                            ? Theme.of(context).textTheme.bodyLarge?.color
-                            : Theme.of(
-                              context,
-                            ).textTheme.bodyLarge?.color!.withAlpha(50),
-                  ),
-                ),
-              ),
-              TextButton(
-                onPressed: () {
-                  setState(() {
-                    _pageIndex = 3;
-                  });
-                },
-                child: Text(
-                  "Speaking",
-                  style: TextStyle(
-                    color:
-                        _pageIndex == 3
-                            ? Theme.of(context).textTheme.bodyLarge?.color
-                            : Theme.of(
-                              context,
-                            ).textTheme.bodyLarge?.color!.withAlpha(50),
-                  ),
-                ),
-              ),
-            ],
+            ),
           ),
           Padding(
             padding: const EdgeInsets.symmetric(horizontal: 64.0),
@@ -120,7 +61,7 @@ class _ResultsWidgetState extends State<ResultsWidget> {
                         textAlign: TextAlign.start,
                       ),
                       Text(
-                        "h",
+                        "hours".tr(),
                         style: TextStyle(
                           fontSize: 22,
                           color: Theme.of(
@@ -135,7 +76,7 @@ class _ResultsWidgetState extends State<ResultsWidget> {
                         textAlign: TextAlign.start,
                       ),
                       Text(
-                        "min",
+                        "minutes".tr(),
                         style: TextStyle(
                           fontSize: 22,
                           color: Theme.of(
@@ -145,12 +86,12 @@ class _ResultsWidgetState extends State<ResultsWidget> {
                       ),
                     ],
                   ),
-                  const Row(
+                  Row(
                     children: [
                       Padding(
                         padding: EdgeInsets.only(right: 24.0),
                         child: Text(
-                          "Overall time spend",
+                          "overall-time-spend".tr(),
                           style: TextStyle(fontSize: 16),
                           textAlign: TextAlign.start,
                         ),
@@ -196,10 +137,10 @@ class _ResultsWidgetState extends State<ResultsWidget> {
                         ),
                       ],
                     ),
-                    const Padding(
+                    Padding(
                       padding: EdgeInsets.only(right: 24.0),
                       child: Text(
-                        "Variants solved",
+                        "variants-solved".tr(),
                         style: TextStyle(fontSize: 16),
                         textAlign: TextAlign.start,
                       ),
@@ -209,7 +150,7 @@ class _ResultsWidgetState extends State<ResultsWidget> {
               ),
               Transform.translate(
                 offset: const Offset(0, -16),
-                child: const Row(
+                child: Row(
                   mainAxisAlignment: MainAxisAlignment.spaceBetween,
                   children: [
                     Row(
@@ -227,7 +168,7 @@ class _ResultsWidgetState extends State<ResultsWidget> {
                     Padding(
                       padding: EdgeInsets.only(right: 24.0),
                       child: Text(
-                        "Mistakes made",
+                        "mistakes-made".tr(),
                         style: TextStyle(fontSize: 16),
                         textAlign: TextAlign.start,
                       ),
@@ -238,6 +179,24 @@ class _ResultsWidgetState extends State<ResultsWidget> {
             ],
           ),
         ],
+      ),
+    );
+  }
+
+  Widget _buildTabButton(BuildContext context, String key, int index) {
+    final isSelected = _pageIndex == index;
+    final baseColor = Theme.of(context).textTheme.bodyLarge?.color;
+    return TextButton(
+      onPressed: () {
+        setState(() {
+          _pageIndex = index;
+        });
+      },
+      child: Text(
+        key.tr(),
+        style: TextStyle(
+          color: isSelected ? baseColor : baseColor?.withAlpha(50),
+        ),
       ),
     );
   }

@@ -1,3 +1,4 @@
+import 'package:easy_localization/easy_localization.dart';
 import 'package:flutter/material.dart';
 import 'package:google_nav_bar/google_nav_bar.dart';
 import 'package:shyraq_ai/features/home/home_screen.dart';
@@ -49,7 +50,7 @@ class _MainViewState extends State<MainView> {
                 iconColor: Colors.white,
                 iconActiveColor: Colors.white,
                 icon: Icons.home_rounded,
-                text: "Home",
+                text: "home".tr(),
               ),
               GButton(
                 textStyle: Theme.of(
@@ -58,7 +59,7 @@ class _MainViewState extends State<MainView> {
                 iconColor: Colors.white,
                 iconActiveColor: Colors.white,
                 icon: Icons.school_rounded,
-                text: "Learn",
+                text: "learn".tr(),
               ),
               GButton(
                 textStyle: Theme.of(
@@ -67,7 +68,7 @@ class _MainViewState extends State<MainView> {
                 iconColor: Colors.white,
                 iconActiveColor: Colors.white,
                 icon: Icons.sports_gymnastics,
-                text: "Practice",
+                text: "practice".tr(),
               ),
               GButton(
                 textStyle: Theme.of(
@@ -76,7 +77,7 @@ class _MainViewState extends State<MainView> {
                 iconColor: Colors.white,
                 iconActiveColor: Colors.white,
                 icon: Icons.favorite_rounded,
-                text: "Social",
+                text: "social".tr(),
               ),
               /*GButton(
                 textStyle: Theme.of(

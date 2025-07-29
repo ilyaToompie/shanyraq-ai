@@ -61,7 +61,7 @@ class UserRepository implements IUserRepository {
       'email': email,
       'createdAt': FieldValue.serverTimestamp(),
       'username': username,
-      'region': 'region',
+      'region': region,
       'xp': 0,
       'friends': [],
     });

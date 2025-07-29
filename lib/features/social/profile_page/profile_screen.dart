@@ -1,10 +1,14 @@
 import 'package:cloud_firestore/cloud_firestore.dart';
+import 'package:easy_localization/easy_localization.dart';
 import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutter/material.dart';
 import 'package:shyraq_ai/features/main_view/main_view.dart';
 import 'package:shyraq_ai/features/social/widgets/friend_toggle_button.dart';
 import 'package:shyraq_ai/features/social/widgets/friends_list.dart';
 import 'package:shyraq_ai/features/users/domain/user.dart';
+import 'package:shyraq_ai/shared/adaptive_navigator.dart';
+import 'package:shyraq_ai/shared/language_selector/language_selector_screen.dart';
+import 'package:shyraq_ai/shared/widgets/profile/streak_fire.dart';
 
 class ProfileScreen extends StatelessWidget {
   final AppUser user;
@@ -33,7 +37,7 @@ class ProfileScreen extends StatelessWidget {
 
     return Scaffold(
       appBar: AppBar(
-        title: const Text("Profile"),
+        title: Text("profile".tr()),
         actions: [
           if (FirebaseAuth.instance.currentUser != null)
             Row(
@@ -41,16 +45,33 @@ class ProfileScreen extends StatelessWidget {
                 if (user.id != FirebaseAuth.instance.currentUser!.uid)
                   FriendToggleButton(user: user),
                 if (user.id == FirebaseAuth.instance.currentUser!.uid)
-                  IconButton(
-                    icon: const Icon(Icons.logout),
-                    onPressed: () async {
-                      await FirebaseAuth.instance.signOut();
-                      if (context.mounted) {
-                        Navigator.of(context).pushReplacement(
-                          MaterialPageRoute(builder: (_) => const MainView()),
-                        );
-                      }
-                    },
+                  Row(
+                    children: [
+                      IconButton(
+                        icon: const Icon(Icons.language_rounded),
+                        onPressed: () {
+                          if (context.mounted) {
+                            adaptiveNavigatorPush(
+                              context: context,
+                              builder: (context) => const LanguageSelector(),
+                            );
+                          }
+                        },
+                      ),
+                      IconButton(
+                        icon: const Icon(Icons.logout),
+                        onPressed: () async {
+                          await FirebaseAuth.instance.signOut();
+                          if (context.mounted) {
+                            Navigator.of(context).pushReplacement(
+                              MaterialPageRoute(
+                                builder: (_) => const MainView(),
+                              ),
+                            );
+                          }
+                        },
+                      ),
+                    ],
                   ),
               ],
             ),
@@ -73,7 +94,36 @@ class ProfileScreen extends StatelessWidget {
             user.username,
             style: const TextStyle(fontSize: 20, fontWeight: FontWeight.bold),
           ),
-          Text("XP: ${user.xp}"),
+          Row(
+            mainAxisAlignment: MainAxisAlignment.center,
+            crossAxisAlignment: CrossAxisAlignment.end,
+            children: [
+              Column(
+                mainAxisSize: MainAxisSize.min,
+                children: [
+                  Text(
+                    user.xp.toString(),
+                    style: const TextStyle(fontSize: 24),
+                  ),
+                  const SizedBox(height: 4),
+                  const Text("XP", style: TextStyle(fontSize: 24)),
+                ],
+              ),
+              const SizedBox(width: 48),
+              Column(
+                mainAxisSize: MainAxisSize.min,
+                children: [
+                  const SizedBox(
+                    width: 48,
+                    height: 48,
+                    child: StreakFire(days: 2, isActive: true),
+                  ),
+                  SizedBox(height: 4),
+                  Text("day-streak".tr(), style: TextStyle(fontSize: 24)),
+                ],
+              ),
+            ],
+          ),
           const SizedBox(height: 16),
           if (FirebaseAuth.instance.currentUser != null)
             Padding(

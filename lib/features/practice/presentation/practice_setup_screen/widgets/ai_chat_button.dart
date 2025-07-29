@@ -1,3 +1,4 @@
+import 'package:easy_localization/easy_localization.dart';
 import 'package:flutter/material.dart';
 import 'package:shyraq_ai/features/ai_chat/representation/topic_selection_screen/topic_selection_screen.dart';
 import 'package:shyraq_ai/shared/adaptive_navigator.dart';
@@ -37,7 +38,7 @@ class AiChatButton extends StatelessWidget {
                     ),
                   ),
                   Text(
-                    "Chat with an AI",
+                    "chat-with-an-ai".tr(),
                     style: TextStyle(
                       fontSize: 30,
                       color: Theme.of(context).colorScheme.onPrimary,
@@ -49,7 +50,7 @@ class AiChatButton extends StatelessWidget {
               Row(
                 children: [
                   Text(
-                    "Chat with an AI to practice dialogue! \nUse pre-made topics.",
+                    "chat-with-an-ai-to-practice-dialogue".tr(),
                     style: TextStyle(
                       color: Theme.of(context).colorScheme.onPrimary,
                     ),

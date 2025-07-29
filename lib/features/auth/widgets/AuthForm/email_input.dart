@@ -1,3 +1,4 @@
+import 'package:easy_localization/easy_localization.dart';
 import 'package:flutter/material.dart';
 
 class EmailInput extends StatelessWidget {
@@ -10,7 +11,7 @@ class EmailInput extends StatelessWidget {
     return TextField(
       controller: controller,
       decoration: InputDecoration(
-        labelText: 'Email',
+        labelText: 'email'.tr(),
         filled: true,
         border: OutlineInputBorder(borderRadius: BorderRadius.circular(12)),
       ),

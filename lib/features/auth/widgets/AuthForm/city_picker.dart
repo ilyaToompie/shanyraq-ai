@@ -1,3 +1,4 @@
+import 'package:easy_localization/easy_localization.dart';
 import 'package:flutter/material.dart';
 import 'package:shyraq_ai/features/users/data/kazakhCities.dart';
 
@@ -17,12 +18,12 @@ class _CityPickerState extends State<CityPicker> {
   @override
   void initState() {
     super.initState();
-    selectedCityCode = kazakhstanCities.keys.first;
+    selectedCityCode = kazakhstan_cities.keys.first;
   }
 
   @override
   Widget build(BuildContext context) {
-    final cityEntries = kazakhstanCities.entries.toList();
+    final cityEntries = kazakhstan_cities.entries.toList();
 
     return DropdownButtonFormField<String>(
       value: selectedCityCode,
@@ -44,7 +45,7 @@ class _CityPickerState extends State<CityPicker> {
         }
       },
       decoration: InputDecoration(
-        labelText: 'City',
+        labelText: 'city'.tr(),
         border: OutlineInputBorder(borderRadius: BorderRadius.circular(12)),
         filled: true,
         labelStyle: const TextStyle(color: Colors.black),

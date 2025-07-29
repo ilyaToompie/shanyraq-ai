@@ -1,3 +1,4 @@
+import 'package:easy_localization/easy_localization.dart';
 import 'package:flutter/material.dart';
 import 'package:shyraq_ai/features/home/widgets/home_screen_title.dart';
 import 'package:shyraq_ai/features/home/widgets/more_details_button.dart';
@@ -36,32 +37,37 @@ class _HomeScreenState extends State<HomeScreen> {
                   const SizedBox(width: 16),
                 ],
                 title: Text(
-                  user != null ? "Salem, ${user.username}!" : "Salem, guest!",
+                  user != null
+                      ? "salem-title".tr(args: [user.username])
+                      : "salem-title".tr(args: ['guest'.tr()]),
                   style: const TextStyle(fontSize: 30),
                 ),
                 centerTitle: false,
               ),
-              body: const Column(
+              body: Column(
                 children: [
-                  Padding(
+                  const Padding(
                     padding: EdgeInsets.symmetric(horizontal: 18.0),
                     child: HomeScreenTitle(),
                   ),
-                  Padding(
-                    padding: EdgeInsets.symmetric(horizontal: 128.0),
+                  const Padding(
+                    padding: const EdgeInsets.symmetric(horizontal: 128.0),
                     child: Divider(),
                   ),
                   Padding(
-                    padding: EdgeInsets.symmetric(horizontal: 8.0),
+                    padding: const EdgeInsets.symmetric(horizontal: 8.0),
                     child: Row(
-                      spacing: 64,
+                      spacing: 32,
                       mainAxisAlignment: MainAxisAlignment.center,
                       children: [
                         Padding(
-                          padding: EdgeInsets.only(left: 24.0, bottom: 16),
+                          padding: const EdgeInsets.only(
+                            left: 14.0,
+                            bottom: 16,
+                          ),
                           child: Column(
                             children: [
-                              Row(
+                              const Row(
                                 children: [
                                   Text("?", style: TextStyle(fontSize: 48)),
                                   SizedBox(width: 8),
@@ -69,13 +75,16 @@ class _HomeScreenState extends State<HomeScreen> {
                                 ],
                               ),
                               Text(
-                                "Your recent score",
-                                style: TextStyle(fontWeight: FontWeight.w200),
+                                "you-recent-score".tr(),
+                                style: const TextStyle(
+                                  fontSize: 14,
+                                  fontWeight: FontWeight.w200,
+                                ),
                               ),
                             ],
                           ),
                         ),
-                        MoreDetailsButton(),
+                        const MoreDetailsButton(),
                       ],
                     ),
                   ),
@@ -84,20 +93,20 @@ class _HomeScreenState extends State<HomeScreen> {
                     children: [
                       ProgressWidget(
                         icon: Icons.school_rounded,
-                        title: 'Topics',
+                        title: 'topics'.tr(),
                         max: 8,
                         completed: 2,
                       ),
                       SizedBox(width: 12),
                       ProgressWidget(
                         icon: Icons.question_mark_rounded,
-                        title: 'questions',
+                        title: 'questions'.tr(),
                         max: 8,
                         completed: 2,
                       ),
                     ],
                   ),
-                  Padding(
+                  const Padding(
                     padding: EdgeInsets.all(16.0),
                     child: ResultsWidget(),
                   ),

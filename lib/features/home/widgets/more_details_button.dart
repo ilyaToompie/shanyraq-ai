@@ -1,3 +1,4 @@
+import 'package:easy_localization/easy_localization.dart';
 import 'package:flutter/material.dart';
 
 class MoreDetailsButton extends StatelessWidget {
@@ -19,7 +20,7 @@ class MoreDetailsButton extends StatelessWidget {
         child: Row(
           children: [
             Text(
-              "More Details",
+              "more-details".tr(),
               style: TextStyle(color: Theme.of(context).colorScheme.onPrimary),
             ),
             const SizedBox(width: 8),

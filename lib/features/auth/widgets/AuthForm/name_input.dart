@@ -1,3 +1,4 @@
+import 'package:easy_localization/easy_localization.dart';
 import 'package:flutter/material.dart';
 
 class UsernameInput extends StatelessWidget {
@@ -10,7 +11,7 @@ class UsernameInput extends StatelessWidget {
     return TextField(
       controller: controller,
       decoration: InputDecoration(
-        labelText: 'Enter your username',
+        labelText: 'enter-username'.tr(),
         filled: true,
         border: OutlineInputBorder(borderRadius: BorderRadius.circular(12)),
       ),

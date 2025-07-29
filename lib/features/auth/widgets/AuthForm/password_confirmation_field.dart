@@ -1,3 +1,4 @@
+import 'package:easy_localization/easy_localization.dart';
 import 'package:flutter/material.dart';
 
 class PasswordConfirmationField extends StatelessWidget {
@@ -11,7 +12,7 @@ class PasswordConfirmationField extends StatelessWidget {
       controller: controller,
       obscureText: true,
       decoration: InputDecoration(
-        labelText: 'Confirm password',
+        labelText: 'confirm-password'.tr(),
         filled: true,
         border: OutlineInputBorder(borderRadius: BorderRadius.circular(12)),
       ),

@@ -1,10 +1,15 @@
+import 'package:easy_localization/easy_localization.dart';
 import 'package:flutter/material.dart';
 
 class MessageInputField extends StatelessWidget {
   final TextEditingController controller;
   final VoidCallback onSend;
 
-  const MessageInputField({required this.controller, required this.onSend});
+  const MessageInputField({
+    super.key,
+    required this.controller,
+    required this.onSend,
+  });
 
   @override
   Widget build(BuildContext context) {
@@ -26,7 +31,7 @@ class MessageInputField extends StatelessWidget {
                     color: Theme.of(context).colorScheme.surface,
                   ),
                 ),
-                hintText: 'Type a message',
+                hintText: 'type-a-message'.tr(),
                 hintStyle: const TextStyle(color: Colors.white),
                 border: OutlineInputBorder(
                   borderRadius: BorderRadius.circular(24),

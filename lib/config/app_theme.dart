@@ -62,7 +62,7 @@ class AppTheme {
       bodyLarge: TextStyle(
         fontSize: 16,
         fontWeight: FontWeight.w500,
-        color: Colors.black12,
+        color: Colors.white,
       ),
     ),
     appBarTheme: AppBarTheme(

@@ -1,5 +1,6 @@
 import 'dart:io';
 
+import 'package:easy_localization/easy_localization.dart';
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 
@@ -21,7 +22,7 @@ class SubmitButton extends StatelessWidget {
       return CupertinoButton.filled(
         borderRadius: BorderRadius.circular(10),
         onPressed: onPressed,
-        child: Text(isLogin ? 'Login' : 'Register'),
+        child: Text(isLogin ? 'login'.tr() : 'register'.tr()),
       );
     }
 
@@ -33,7 +34,7 @@ class SubmitButton extends StatelessWidget {
         minimumSize: const Size.fromHeight(48),
         shape: RoundedRectangleBorder(borderRadius: BorderRadius.circular(12)),
       ),
-      child: Text(isLogin ? 'Login' : 'Register'),
+      child: Text(isLogin ? 'login'.tr() : 'register'.tr()),
     );
   }
 }

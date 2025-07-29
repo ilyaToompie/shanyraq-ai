@@ -1,8 +1,8 @@
 // ignore_for_file: use_build_context_synchronously
 
+import 'package:easy_localization/easy_localization.dart';
 import 'package:firebase_auth/firebase_auth.dart' as auth;
 import 'package:flutter/material.dart';
-import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:email_validator/email_validator.dart';
 import 'package:shyraq_ai/features/auth/widgets/AuthForm/auth_toggle_bar.dart';
 import 'package:shyraq_ai/features/auth/widgets/AuthForm/city_picker.dart';
@@ -14,8 +14,6 @@ import 'package:shyraq_ai/features/auth/widgets/AuthForm/submit_button.dart';
 import 'package:shyraq_ai/features/main_view/main_view.dart';
 import 'package:shyraq_ai/features/users/data/kazakhCities.dart';
 import 'package:shyraq_ai/features/users/data/user_repository.dart';
-import 'package:shyraq_ai/features/users/logic/user_bloc.dart';
-import 'package:shyraq_ai/features/users/logic/user_event.dart';
 
 class AuthScreen extends StatefulWidget {
   const AuthScreen({super.key});
@@ -42,7 +40,7 @@ class _AuthScreenState extends State<AuthScreen>
   @override
   void initState() {
     super.initState();
-    selectedCity = kazakhstanCities.keys.first;
+    selectedCity = kazakhstan_cities.keys.first;
     _animationController = AnimationController(
       vsync: this,
       duration: const Duration(milliseconds: 200),
@@ -62,22 +60,22 @@ class _AuthScreenState extends State<AuthScreen>
     final passwordConfirmation = passwordConfirmationController.text.trim();
 
     if (email.isEmpty || password.isEmpty) {
-      _showError("Email and password cannot be empty");
+      _showError("empty-email-password".tr());
       return;
     }
 
     if (!EmailValidator.validate(email)) {
-      _showError("Email is invalid!");
+      _showError("invalid-email".tr());
       return;
     }
 
     if (!isLogin && password != passwordConfirmation) {
-      _showError("Passwords do not match");
+      _showError("passwords-dont-match".tr());
       return;
     }
 
     if (password.length < 6) {
-      _showError("Password must be at least 6 characters long");
+      _showError("password-too-short".tr());
       return;
     }
 
@@ -111,7 +109,6 @@ class _AuthScreenState extends State<AuthScreen>
         );
       }
 
-      context.read<UserBloc>().add(LoadCurrentUser());
       await Future.delayed(const Duration(milliseconds: 300));
       Navigator.of(
         context,
@@ -119,28 +116,28 @@ class _AuthScreenState extends State<AuthScreen>
     } on auth.FirebaseAuthException catch (e) {
       switch (e.code) {
         case 'invalid-email':
-          _showError("Invalid email format.");
+          _showError("auth-invalid-email".tr());
           break;
         case 'user-disabled':
-          _showError("Account has been disabled.");
+          _showError("auth-user-disabled".tr());
           break;
         case 'user-not-found':
-          _showError("No user found with this email.");
+          _showError("auth-user-not-found".tr());
           break;
         case 'wrong-password':
-          _showError("Incorrect password.");
+          _showError("auth-wrong-password".tr());
           break;
         case 'email-already-in-use':
-          _showError("This email is already registered.");
+          _showError("auth-email-already-in-use".tr());
           break;
         case 'weak-password':
-          _showError("Password is too weak.");
+          _showError("auth-weak-password".tr());
           break;
         case 'operation-not-allowed':
-          _showError("Sign-in method not allowed.");
+          _showError("auth-operation-not-allowed".tr());
           break;
         default:
-          _showError(e.message ?? "Authentication error.");
+          _showError(e.message ?? "auth-error".tr());
       }
     }
   }
@@ -170,7 +167,7 @@ class _AuthScreenState extends State<AuthScreen>
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      appBar: AppBar(title: Text(isLogin ? 'Login' : 'Register')),
+      appBar: AppBar(title: Text(isLogin ? 'login'.tr() : 'register'.tr())),
       body: Padding(
         padding: const EdgeInsets.all(24),
         child: Stack(
@@ -199,7 +196,7 @@ class _AuthScreenState extends State<AuthScreen>
                       Padding(
                         padding: const EdgeInsets.symmetric(vertical: 8.0),
                         child: CityPicker(
-                          locale: 'ru',
+                          locale: context.locale.languageCode,
                           onSelected: (String cityCode) {
                             setState(() {
                               selectedCity = cityCode;

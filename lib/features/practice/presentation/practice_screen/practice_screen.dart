@@ -23,7 +23,7 @@ class _PracticeScreenState extends State<PracticeScreen> {
   late Future<List<PracticeQuestion>> _futureQuestions;
   late PageController _pageController;
   List<PracticeQuestion> _questions = [];
-  Map<int, String> _selectedAnswers = {};
+  final Map<int, String> _selectedAnswers = {};
   int _score = 0;
 
   @override
@@ -70,8 +70,9 @@ class _PracticeScreenState extends State<PracticeScreen> {
     setState(() {
       _selectedAnswers[index] = selected;
     });
-
     Future.delayed(const Duration(milliseconds: 600), () {
+      if (!mounted) return;
+
       if (index < _questions.length - 1) {
         _pageController.nextPage(
           duration: const Duration(milliseconds: 400),

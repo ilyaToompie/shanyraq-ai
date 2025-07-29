@@ -1,4 +1,9 @@
+import 'package:easy_localization/easy_localization.dart';
 import 'package:flutter/material.dart';
+import 'package:shyraq_ai/features/meetup/widgets/meetup_intro_text.dart';
+import 'package:shyraq_ai/features/meetup/widgets/meetup_list.dart';
+import 'package:shyraq_ai/features/meetup/widgets/meetup_map.dart';
+import 'package:shyraq_ai/features/meetup/widgets/meetup_title.dart';
 
 class MeetupsListScreen extends StatelessWidget {
   const MeetupsListScreen({super.key});
@@ -6,7 +11,7 @@ class MeetupsListScreen extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      appBar: AppBar(title: const Text('Meetups')),
+      appBar: AppBar(title: Text('meetups-title'.tr())),
       body: const SingleChildScrollView(
         padding: EdgeInsets.all(16),
         child: Column(
@@ -21,136 +26,6 @@ class MeetupsListScreen extends StatelessWidget {
             MeetupList(),
           ],
         ),
-      ),
-    );
-  }
-}
-
-class MeetupIntroText extends StatelessWidget {
-  const MeetupIntroText({super.key});
-
-  @override
-  Widget build(BuildContext context) {
-    final textTheme = Theme.of(context).textTheme;
-
-    return Text(
-      'Join local language meetups to practice with others in real life. These events help build speaking confidence and meet learners like you.',
-      style: textTheme.bodyMedium,
-    );
-  }
-}
-
-class MeetupMap extends StatelessWidget {
-  const MeetupMap({super.key});
-
-  @override
-  Widget build(BuildContext context) {
-    final color = Theme.of(context).colorScheme;
-
-    return Container(
-      height: 200,
-      width: double.infinity,
-      decoration: BoxDecoration(
-        color: color.primaryContainer,
-        borderRadius: BorderRadius.circular(12),
-      ),
-      child: Center(child: Icon(Icons.map, color: color.onPrimaryContainer)),
-    );
-  }
-}
-
-class MeetupTitle extends StatelessWidget {
-  const MeetupTitle({super.key});
-
-  @override
-  Widget build(BuildContext context) {
-    final color = Theme.of(context).colorScheme;
-
-    return Text(
-      'Meetups in your city',
-      style: TextStyle(
-        fontSize: 18,
-        fontWeight: FontWeight.bold,
-        color: color.onBackground,
-      ),
-    );
-  }
-}
-
-class MeetupList extends StatelessWidget {
-  const MeetupList({super.key});
-
-  @override
-  Widget build(BuildContext context) {
-    return Column(
-      children: List.generate(
-        3,
-        (i) => const Padding(
-          padding: EdgeInsets.only(bottom: 12),
-          child: MeetupCard(
-            current: 3,
-            max: 10,
-            time: '18:00',
-            date: '2025-07-30',
-            bossUsername: '@language_boss',
-          ),
-        ),
-      ),
-    );
-  }
-}
-
-class MeetupCard extends StatelessWidget {
-  final int current;
-  final int max;
-  final String time;
-  final String date;
-  final String bossUsername;
-
-  const MeetupCard({
-    required this.current,
-    required this.max,
-    required this.time,
-    required this.date,
-    required this.bossUsername,
-    super.key,
-  });
-
-  @override
-  Widget build(BuildContext context) {
-    final color = Theme.of(context).colorScheme;
-
-    return Container(
-      padding: const EdgeInsets.all(12),
-      decoration: BoxDecoration(borderRadius: BorderRadius.circular(12)),
-      child: Row(
-        children: [
-          Icon(Icons.group, color: color.onSurfaceVariant),
-          const SizedBox(width: 12),
-          Expanded(
-            child: Column(
-              crossAxisAlignment: CrossAxisAlignment.start,
-              children: [
-                Text(
-                  '$current / $max people',
-                  style: TextStyle(color: color.onSurfaceVariant),
-                ),
-                Text(
-                  'Time: $time',
-                  style: TextStyle(color: color.onSurfaceVariant),
-                ),
-                Text(
-                  'Date: $date',
-                  style: TextStyle(color: color.onSurfaceVariant),
-                ),
-                Text(
-                  'Boss: $bossUsername',
-                  style: TextStyle(color: color.onSurfaceVariant),
-                ),
-              ],
-            ),
-          ),
-        ],
       ),
     );
   }

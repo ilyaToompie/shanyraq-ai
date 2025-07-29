@@ -1,3 +1,4 @@
+import 'package:easy_localization/easy_localization.dart';
 import 'package:flutter/material.dart';
 import 'package:shyraq_ai/features/practice/presentation/practice_setup_screen/widgets/ai_chat_button.dart';
 import 'package:shyraq_ai/features/practice/presentation/practice_setup_screen/widgets/question_selection.dart';
@@ -9,9 +10,10 @@ class PracticeSetupScreen extends StatelessWidget {
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
+        automaticallyImplyLeading: false,
         forceMaterialTransparency: true,
         centerTitle: false,
-        title: const Text("Practice"),
+        title: Text("practice".tr()),
       ),
       body: SingleChildScrollView(
         padding: const EdgeInsets.all(16.0),
@@ -19,14 +21,15 @@ class PracticeSetupScreen extends StatelessWidget {
           children: [
             Transform.translate(
               offset: const Offset(0, -12),
-              child: const Text(
-                "Challenge your knowledge",
+              child: Text(
+                "challenge-your-knowledge".tr(),
                 style: TextStyle(fontSize: 54, letterSpacing: -2, height: 1.1),
               ),
             ),
             const AiChatButton(),
+            SizedBox(height: 10),
             Text(
-              "or",
+              "or".tr(),
               style: TextStyle(
                 fontSize: 32,
                 color: Theme.of(
@@ -37,7 +40,7 @@ class PracticeSetupScreen extends StatelessWidget {
               ),
             ),
             Text(
-              "Select question type",
+              "select-question-type".tr(),
               style: TextStyle(
                 fontSize: 32,
                 color: Theme.of(

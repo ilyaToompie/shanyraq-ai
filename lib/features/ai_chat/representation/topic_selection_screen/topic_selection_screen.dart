@@ -114,7 +114,7 @@ class _TopicSelectionScreenState extends State<TopicSelectionScreen> {
           for (final level in levels)
             level: Padding(
               padding: const EdgeInsets.symmetric(horizontal: 12, vertical: 8),
-              child: Text(level, style: TextStyle(color: Colors.black)),
+              child: Text(level, style: const TextStyle(color: Colors.black)),
             ),
         },
         onValueChanged: (value) {

@@ -1,4 +1,5 @@
 import 'package:cloud_firestore/cloud_firestore.dart';
+import 'package:easy_localization/easy_localization.dart';
 import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutter/material.dart';
 import 'package:shyraq_ai/features/users/domain/user.dart';
@@ -42,8 +43,8 @@ class FriendsList extends StatelessWidget {
     return Column(
       crossAxisAlignment: CrossAxisAlignment.start,
       children: [
-        const Text(
-          'Friends',
+        Text(
+          'friends'.tr(),
           style: TextStyle(fontSize: 18, fontWeight: FontWeight.bold),
         ),
         const SizedBox(height: 12),
@@ -64,7 +65,7 @@ class FriendsList extends StatelessWidget {
                 height: 80,
                 child:
                     friends.isEmpty
-                        ? const Center(child: Text("No friends yet."))
+                        ? Center(child: Text("no-friends-yet".tr()))
                         : ListView.separated(
                           scrollDirection: Axis.horizontal,
                           itemCount: friends.length,
@@ -93,8 +94,8 @@ class FriendsList extends StatelessWidget {
             },
           ),
         const SizedBox(height: 24),
-        const Text(
-          'Suggested People',
+        Text(
+          'suggested-people'.tr(),
           style: TextStyle(fontSize: 18, fontWeight: FontWeight.bold),
         ),
         const SizedBox(height: 12),
@@ -107,8 +108,11 @@ class FriendsList extends StatelessWidget {
                 child: Center(child: CircularProgressIndicator()),
               );
             }
-
+            if (FirebaseAuth.instance.currentUser == null) {
+              return const SizedBox();
+            }
             final currentUid = FirebaseAuth.instance.currentUser!.uid;
+
             final suggested =
                 (snapshot.data ?? []).where((u) => u.id != currentUid).toList();
             if (suggested.isEmpty) {

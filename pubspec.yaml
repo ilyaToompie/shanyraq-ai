@@ -10,32 +10,39 @@ dependencies:
   bloc: ^9.0.0
   carousel_slider: ^5.1.1
   cloud_firestore: ^5.6.12
+  device_preview: ^1.2.0
+  easy_localization: ^3.0.8
   email_validator: ^3.0.0
   firebase_auth: ^5.7.0
   firebase_core: ^3.15.2
   flutter:
     sdk: flutter
   flutter_bloc: ^9.1.1
+  flutter_map: ^7.0.2
   flutter_scroll_shadow: ^1.2.6
   font_awesome_flutter: ^10.8.0
   google_nav_bar: ^5.0.7
   info_widget: ^1.0.0
+  latlong2: ^0.9.1
 
 dev_dependencies:
   flutter_test:
     sdk: flutter
   flutter_lints: ^5.0.0
 
+
 flutter:
   uses-material-design: true
   fonts:
-    - family: Outfit
+    - family: Nunito
       fonts:
-        - asset: assets/fonts/Outfit/Outfit-Regular.ttf
-        - asset: assets/fonts/Outfit/Outfit-Black.ttf
-        - asset: assets/fonts/Outfit/Outfit-Light.ttf
-        - asset: assets/fonts/Outfit/Outfit-Medium.ttf
+        - asset: assets/fonts/Nunito/Nunito-Regular.ttf
+        - asset: assets/fonts/Nunito/Nunito-Black.ttf
+        - asset: assets/fonts/Nunito/Nunito-Light.ttf
+        - asset: assets/fonts/Nunito/Nunito-Medium.ttf
   assets:
     - assets/
+    - assets/images/
+    - assets/translations/
     - assets/problems/
     - assets/problems/practicing/

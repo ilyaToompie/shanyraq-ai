@@ -1,3 +1,4 @@
+import 'package:easy_localization/easy_localization.dart';
 import 'package:flutter/material.dart';
 
 class PasswordInput extends StatelessWidget {
@@ -11,7 +12,7 @@ class PasswordInput extends StatelessWidget {
       controller: controller,
       obscureText: true,
       decoration: InputDecoration(
-        labelText: 'Password',
+        labelText: 'password'.tr(),
         filled: true,
         border: OutlineInputBorder(borderRadius: BorderRadius.circular(12)),
       ),

@@ -1,3 +1,4 @@
+import 'package:easy_localization/easy_localization.dart';
 import 'package:flutter/material.dart';
 import 'package:shyraq_ai/features/practice/presentation/practice_screen/practice_screen.dart';
 import 'package:shyraq_ai/features/practice/presentation/practice_setup_screen/widgets/practice_mistakes_button.dart';
@@ -13,61 +14,15 @@ class QuestionSelection extends StatefulWidget {
 
 class _QuestionSelectionState extends State<QuestionSelection> {
   int _selectedIndex = 0;
-  bool _hasMadeSubSelection = false;
 
-  void _onSubSelectionMade() {
-    setState(() {
-      _hasMadeSubSelection = true;
-    });
-  }
-
-  Widget _buildSubSelection() {
-    switch (_selectedIndex) {
-      case 1:
-        return Column(
-          children: [
-            const Text('Select Exam Number'),
-            const SizedBox(height: 8),
-            ElevatedButton(
-              onPressed: _onSubSelectionMade,
-              child: const Text('Exam #1 (Demo)'),
-            ),
-          ],
-        );
-      case 2:
-        return Column(
-          children: [
-            const Text('Select Topic'),
-            const SizedBox(height: 8),
-            ElevatedButton(
-              onPressed: _onSubSelectionMade,
-              child: const Text('Topic: Grammar (Demo)'),
-            ),
-          ],
-        );
-      case 3:
-        return Column(
-          children: [
-            const Text('Select Starting Question'),
-            const SizedBox(height: 8),
-            ElevatedButton(
-              onPressed: _onSubSelectionMade,
-              child: const Text('Start from Q1 (Demo)'),
-            ),
-          ],
-        );
-      default:
-        return const SizedBox.shrink();
-    }
-  }
-
-  bool get _canStart {
-    if (_selectedIndex == 0 || _selectedIndex == 4) return true;
-    return _hasMadeSubSelection;
+  void _select(int index) {
+    setState(() => _selectedIndex = index);
   }
 
   @override
   Widget build(BuildContext context) {
+    final colorScheme = Theme.of(context).colorScheme;
+
     return SizedBox(
       width: MediaQuery.of(context).size.width,
       child: Column(
@@ -78,62 +33,42 @@ class _QuestionSelectionState extends State<QuestionSelection> {
               Column(
                 children: [
                   GestureDetector(
+                    onTap: () => _select(0),
                     child: QuestionSelectionButton(
-                      title: "Random",
+                      title: "random".tr(),
                       icon: Icons.shuffle_rounded,
                       isSelected: _selectedIndex == 0,
                     ),
-                    onTap: () {
-                      setState(() {
-                        _selectedIndex = 0;
-                        _hasMadeSubSelection = false;
-                      });
-                    },
                   ),
                   const SizedBox(height: 4),
                   GestureDetector(
+                    onTap: () => _select(1),
                     child: QuestionSelectionButton(
-                      title: "Exam Number",
+                      title: "exam".tr(),
                       icon: Icons.numbers,
                       isSelected: _selectedIndex == 1,
                     ),
-                    onTap: () {
-                      setState(() {
-                        _selectedIndex = 1;
-                        _hasMadeSubSelection = false;
-                      });
-                    },
                   ),
                 ],
               ),
               Column(
                 children: [
                   GestureDetector(
+                    onTap: () => _select(2),
                     child: QuestionSelectionButton(
-                      title: "Topic",
+                      title: "topic".tr(),
                       icon: Icons.topic_rounded,
                       isSelected: _selectedIndex == 2,
                     ),
-                    onTap: () {
-                      setState(() {
-                        _selectedIndex = 2;
-                        _hasMadeSubSelection = false;
-                      });
-                    },
                   ),
                   const SizedBox(height: 4),
                   GestureDetector(
+                    onTap: () => _select(3),
                     child: QuestionSelectionButton(
-                      title: "In a row",
+                      title: "in-a-row".tr(),
                       icon: Icons.table_rows_rounded,
                       isSelected: _selectedIndex == 3,
                     ),
-                    onTap: () {
-                      setState(() {
-                        _selectedIndex = 3;
-                        _hasMadeSubSelection = false;
-                      });
-                    },
                   ),
                 ],
               ),
@@ -141,32 +76,37 @@ class _QuestionSelectionState extends State<QuestionSelection> {
           ),
           const SizedBox(height: 4),
           GestureDetector(
+            onTap: () => _select(4),
             child: PracticeMistakesButton(isSelected: _selectedIndex == 4),
-            onTap: () {
-              setState(() {
-                _selectedIndex = 4;
-                _hasMadeSubSelection = false;
-              });
-            },
           ),
-          const SizedBox(height: 20),
-          _buildSubSelection(),
-          if (_canStart)
-            Padding(
-              padding: const EdgeInsets.only(top: 24),
-              child: ElevatedButton.icon(
-                onPressed: () {
-                  adaptiveNavigatorPush(
-                    context: context,
-                    builder:
-                        (context) =>
-                            PracticeScreen(practiceType: _selectedIndex),
-                  );
-                },
-                icon: const Icon(Icons.play_arrow),
-                label: const Text("Start"),
+          const SizedBox(height: 8),
+          ElevatedButton(
+            onPressed: () {
+              adaptiveNavigatorPush(
+                context: context,
+                builder: (_) => PracticeScreen(practiceType: _selectedIndex),
+              );
+            },
+            style: ElevatedButton.styleFrom(
+              backgroundColor: colorScheme.primary,
+              foregroundColor: colorScheme.onPrimary,
+              padding: const EdgeInsets.symmetric(horizontal: 24, vertical: 14),
+              shape: RoundedRectangleBorder(
+                borderRadius: BorderRadius.circular(24),
               ),
             ),
+            child: SizedBox(
+              width: MediaQuery.of(context).size.width / 1.4,
+              child: Text(
+                textAlign: TextAlign.center,
+                "start-practicing".tr(),
+                style: const TextStyle(
+                  fontSize: 18,
+                  fontWeight: FontWeight.w400,
+                ),
+              ),
+            ),
+          ),
         ],
       ),
     );

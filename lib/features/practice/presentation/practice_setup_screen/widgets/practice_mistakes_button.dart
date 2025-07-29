@@ -1,3 +1,4 @@
+import 'package:easy_localization/easy_localization.dart';
 import 'package:flutter/material.dart';
 
 class PracticeMistakesButton extends StatefulWidget {
@@ -29,7 +30,7 @@ class _PracticeMistakesButtonState extends State<PracticeMistakesButton> {
             Row(
               children: [
                 Text(
-                  "Mistakes practice",
+                  "mistakes-practice".tr(),
                   style: TextStyle(
                     fontSize: 30,
                     color:
@@ -44,8 +45,9 @@ class _PracticeMistakesButtonState extends State<PracticeMistakesButton> {
             Row(
               children: [
                 Text(
-                  "Practive more the very exam exercices which\nyou're doing worse. You're gonna deal with it!",
+                  "practice-desc".tr(),
                   style: TextStyle(
+                    fontSize: 15,
                     color: Theme.of(context).colorScheme.onPrimary,
                   ),
                 ),
