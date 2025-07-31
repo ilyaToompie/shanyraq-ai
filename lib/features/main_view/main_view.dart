@@ -5,6 +5,7 @@ import 'package:shyraq_ai/features/home/home_screen.dart';
 import 'package:shyraq_ai/features/learn/learn_screen.dart';
 import 'package:shyraq_ai/features/practice/presentation/practice_setup_screen/practice_setup_screen.dart';
 import 'package:shyraq_ai/features/social/social_screen.dart';
+import 'package:shyraq_ai/shared/language_selector/language_selector_screen.dart';
 
 class MainView extends StatefulWidget {
   const MainView({super.key});
@@ -15,6 +16,30 @@ class MainView extends StatefulWidget {
 
 class _MainViewState extends State<MainView> {
   int _selectedIndex = 0;
+  bool _hasShownLanguageSelector = false;
+
+  @override
+  void didChangeDependencies() {
+    super.didChangeDependencies();
+    if (!_hasShownLanguageSelector) {
+      _hasShownLanguageSelector = true;
+      WidgetsBinding.instance.addPostFrameCallback((_) {
+        _showLanguageSelector();
+      });
+    }
+  }
+
+  void _showLanguageSelector() {
+    showDialog(
+      context: context,
+      barrierDismissible: false,
+      builder:
+          (_) => const Dialog(
+            insetPadding: EdgeInsets.symmetric(horizontal: 16, vertical: 32),
+            child: LanguageSelector(),
+          ),
+    );
+  }
 
   final List<Widget> _bottomNavBarScreens = <Widget>[
     const HomeScreen(),
@@ -24,71 +49,73 @@ class _MainViewState extends State<MainView> {
   ];
   @override
   Widget build(BuildContext context) {
-    return Scaffold(
-      extendBody: true,
-      body: SafeArea(child: _bottomNavBarScreens.elementAt(_selectedIndex)),
-      bottomNavigationBar: Padding(
-        padding: const EdgeInsets.all(12.0),
-        child: ClipRRect(
-          borderRadius: BorderRadius.circular(48),
-          child: GNav(
-            padding: const EdgeInsets.symmetric(horizontal: 16, vertical: 20),
-            duration: const Duration(milliseconds: 250),
-            gap: 8,
-            backgroundColor: Theme.of(context).primaryColor,
-            selectedIndex: _selectedIndex,
-            onTabChange: (index) {
-              setState(() {
-                _selectedIndex = index;
-              });
-            },
-            tabs: [
-              GButton(
-                textStyle: Theme.of(
-                  context,
-                ).textTheme.bodyLarge?.copyWith(color: Colors.white),
-                iconColor: Colors.white,
-                iconActiveColor: Colors.white,
-                icon: Icons.home_rounded,
-                text: "home".tr(),
-              ),
-              GButton(
-                textStyle: Theme.of(
-                  context,
-                ).textTheme.bodyLarge?.copyWith(color: Colors.white),
-                iconColor: Colors.white,
-                iconActiveColor: Colors.white,
-                icon: Icons.school_rounded,
-                text: "learn".tr(),
-              ),
-              GButton(
-                textStyle: Theme.of(
-                  context,
-                ).textTheme.bodyLarge?.copyWith(color: Colors.white),
-                iconColor: Colors.white,
-                iconActiveColor: Colors.white,
-                icon: Icons.sports_gymnastics,
-                text: "practice".tr(),
-              ),
-              GButton(
-                textStyle: Theme.of(
-                  context,
-                ).textTheme.bodyLarge?.copyWith(color: Colors.white),
-                iconColor: Colors.white,
-                iconActiveColor: Colors.white,
-                icon: Icons.favorite_rounded,
-                text: "social".tr(),
-              ),
-              /*GButton(
-                textStyle: Theme.of(
-                  context,
-                ).textTheme.bodyLarge?.copyWith(color: Colors.white),
-                iconColor: Colors.white,
-                iconActiveColor: Colors.white,
-                icon: Icons.people_rounded,
-                text: "Profile",
-              ),*/
-            ],
+    return Center(
+      child: Scaffold(
+        extendBody: true,
+        body: SafeArea(child: _bottomNavBarScreens.elementAt(_selectedIndex)),
+        bottomNavigationBar: Padding(
+          padding: const EdgeInsets.all(12.0),
+          child: ClipRRect(
+            borderRadius: BorderRadius.circular(48),
+            child: GNav(
+              padding: const EdgeInsets.symmetric(horizontal: 16, vertical: 20),
+              duration: const Duration(milliseconds: 250),
+              gap: 8,
+              backgroundColor: Theme.of(context).primaryColor,
+              selectedIndex: _selectedIndex,
+              onTabChange: (index) {
+                setState(() {
+                  _selectedIndex = index;
+                });
+              },
+              tabs: [
+                GButton(
+                  textStyle: Theme.of(
+                    context,
+                  ).textTheme.bodyLarge?.copyWith(color: Colors.white),
+                  iconColor: Colors.white,
+                  iconActiveColor: Colors.white,
+                  icon: Icons.home_rounded,
+                  text: "home".tr(),
+                ),
+                GButton(
+                  textStyle: Theme.of(
+                    context,
+                  ).textTheme.bodyLarge?.copyWith(color: Colors.white),
+                  iconColor: Colors.white,
+                  iconActiveColor: Colors.white,
+                  icon: Icons.school_rounded,
+                  text: "learn".tr(),
+                ),
+                GButton(
+                  textStyle: Theme.of(
+                    context,
+                  ).textTheme.bodyLarge?.copyWith(color: Colors.white),
+                  iconColor: Colors.white,
+                  iconActiveColor: Colors.white,
+                  icon: Icons.sports_gymnastics,
+                  text: "practice".tr(),
+                ),
+                GButton(
+                  textStyle: Theme.of(
+                    context,
+                  ).textTheme.bodyLarge?.copyWith(color: Colors.white),
+                  iconColor: Colors.white,
+                  iconActiveColor: Colors.white,
+                  icon: Icons.favorite_rounded,
+                  text: "social".tr(),
+                ),
+                /*GButton(
+                  textStyle: Theme.of(
+                    context,
+                  ).textTheme.bodyLarge?.copyWith(color: Colors.white),
+                  iconColor: Colors.white,
+                  iconActiveColor: Colors.white,
+                  icon: Icons.people_rounded,
+                  text: "Profile",
+                ),*/
+              ],
+            ),
           ),
         ),
       ),

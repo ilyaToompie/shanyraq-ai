@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:easy_localization/easy_localization.dart';
 
 class OverallScoreInfo extends StatelessWidget {
   const OverallScoreInfo({super.key});
@@ -10,22 +11,24 @@ class OverallScoreInfo extends StatelessWidget {
         color: Colors.white,
         borderRadius: BorderRadius.circular(24),
       ),
-      child: const Column(
+      child: Column(
         children: [
           Padding(
-            padding: EdgeInsets.symmetric(horizontal: 65.0, vertical: 2),
-            child: Text('Your chat score:', style: TextStyle(fontSize: 24)),
-          ),
-          SizedBox(width: 60, child: Divider()),
-          Text('Accuracy: 2.4'),
-          Text('Content: 4.9'),
-          Text('Interaction: 3.4'),
-          SizedBox(width: 60, child: Divider()),
-          Padding(
-            padding: EdgeInsets.all(8.0),
+            padding: const EdgeInsets.symmetric(horizontal: 65.0, vertical: 2),
             child: Text(
-              'AI rates your…\n 1. Content - how well you cover the topic\n2. Accuracy - grammar and language quality\n3. Interaction - engagement and logical flow',
+              textAlign: TextAlign.center,
+              'chat_score_title'.tr(),
+              style: const TextStyle(fontSize: 24),
             ),
+          ),
+          const SizedBox(width: 60, child: Divider()),
+          Text('${'accuracy'.tr()}: 2.4'),
+          Text('${'content'.tr()}: 4.9'),
+          Text('${'interaction'.tr()}: 3.4'),
+          const SizedBox(width: 60, child: Divider()),
+          Padding(
+            padding: const EdgeInsets.all(8.0),
+            child: Text('chat_score_description'.tr()),
           ),
         ],
       ),

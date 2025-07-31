@@ -1,0 +1,200 @@
+{
+  "kazakh_introduction": {
+    "question1": {
+      "question-key": "kazakh_intro_q1",
+      "option1": "kazakh_intro_q1_opt1",
+      "option2": "kazakh_intro_q1_opt2",
+      "option3": "kazakh_intro_q1_opt3",
+      "option4": "kazakh_intro_q1_opt4",
+      "correct_answer": "option2"
+    },
+    "question2": {
+      "question-key": "kazakh_intro_q2",
+      "option1": "kazakh_intro_q2_opt1",
+      "option2": "kazakh_intro_q2_opt2",
+      "option3": "kazakh_intro_q2_opt3",
+      "option4": "kazakh_intro_q2_opt4",
+      "correct_answer": "option1"
+    },
+    "question3": {
+      "question-key": "kazakh_intro_q3",
+      "option1": "kazakh_intro_q3_opt1",
+      "option2": "kazakh_intro_q3_opt2",
+      "option3": "kazakh_intro_q3_opt3",
+      "option4": "kazakh_intro_q3_opt4",
+      "correct_answer": "option3"
+    },
+    "question4": {
+      "question-key": "kazakh_intro_q4",
+      "option1": "kazakh_intro_q4_opt1",
+      "option2": "kazakh_intro_q4_opt2",
+      "option3": "kazakh_intro_q4_opt3",
+      "option4": "kazakh_intro_q4_opt4",
+      "correct_answer": "option1"
+    },
+    "question5": {
+      "question-key": "kazakh_intro_q5",
+      "option1": "kazakh_intro_q5_opt1",
+      "option2": "kazakh_intro_q5_opt2",
+      "option3": "kazakh_intro_q5_opt3",
+      "option4": "kazakh_intro_q5_opt4",
+      "correct_answer": "option4"
+    },
+    "question6": {
+      "question-key": "kazakh_intro_q6",
+      "option1": "kazakh_intro_q6_opt1",
+      "option2": "kazakh_intro_q6_opt2",
+      "option3": "kazakh_intro_q6_opt3",
+      "option4": "kazakh_intro_q6_opt4",
+      "correct_answer": "option2"
+    },
+    "question7": {
+      "question-key": "kazakh_intro_q7",
+      "option1": "kazakh_intro_q7_opt1",
+      "option2": "kazakh_intro_q7_opt2",
+      "option3": "kazakh_intro_q7_opt3",
+      "option4": "kazakh_intro_q7_opt4",
+      "correct_answer": "option1"
+    }
+  },
+  "kazakh_alphabet": {
+    "question1": {
+      "question-key": "alphabet_q1",
+      "option1": "alphabet_q1_opt1",
+      "option2": "alphabet_q1_opt2",
+      "option3": "alphabet_q1_opt3",
+      "option4": "alphabet_q1_opt4",
+      "correct_answer": "option1"
+    },
+    "question2": {
+      "question-key": "alphabet_q2",
+      "option1": "alphabet_q2_opt1",
+      "option2": "alphabet_q2_opt2",
+      "option3": "alphabet_q2_opt3",
+      "option4": "alphabet_q2_opt4",
+      "correct_answer": "option2"
+    },
+    "question3": {
+      "question-key": "alphabet_q3",
+      "option1": "alphabet_q3_opt1",
+      "option2": "alphabet_q3_opt2",
+      "option3": "alphabet_q3_opt3",
+      "option4": "alphabet_q3_opt4",
+      "correct_answer": "option3"
+    },
+    "question4": {
+      "question-key": "alphabet_q4",
+      "option1": "alphabet_q4_opt1",
+      "option2": "alphabet_q4_opt2",
+      "option3": "alphabet_q4_opt3",
+      "option4": "alphabet_q4_opt4",
+      "correct_answer": "option4"
+    },
+    "question5": {
+      "question-key": "alphabet_q5",
+      "option1": "alphabet_q5_opt1",
+      "option2": "alphabet_q5_opt2",
+      "option3": "alphabet_q5_opt3",
+      "option4": "alphabet_q5_opt4",
+      "correct_answer": "option1"
+    },
+    "question6": {
+      "question-key": "alphabet_q6",
+      "option1": "alphabet_q6_opt1",
+      "option2": "alphabet_q6_opt2",
+      "option3": "alphabet_q6_opt3",
+      "option4": "alphabet_q6_opt4",
+      "correct_answer": "option2"
+    },
+    "question7": {
+      "question-key": "alphabet_q7",
+      "option1": "alphabet_q7_opt1",
+      "option2": "alphabet_q7_opt2",
+      "option3": "alphabet_q7_opt3",
+      "option4": "alphabet_q7_opt4",
+      "correct_answer": "option3"
+    }
+  },
+  "kazakh_cases": {
+  "question1": {
+    "question-key": "cases_q1",
+    "option1": "cases_q1_opt1",
+    "option2": "cases_q1_opt2",
+    "option3": "cases_q1_opt3",
+    "option4": "cases_q1_opt4",
+    "correct_answer": "option2"
+  },
+  "question2": {
+    "question-key": "cases_q2",
+    "option1": "cases_q2_opt1",
+    "option2": "cases_q2_opt2",
+    "option3": "cases_q2_opt3",
+    "option4": "cases_q2_opt4",
+    "correct_answer": "option3"
+  },
+  "question3": {
+    "question-key": "cases_q3",
+    "option1": "cases_q3_opt1",
+    "option2": "cases_q3_opt2",
+    "option3": "cases_q3_opt3",
+    "option4": "cases_q3_opt4",
+    "correct_answer": "option1"
+  },
+  "question4": {
+    "question-key": "cases_q4",
+    "option1": "cases_q4_opt1",
+    "option2": "cases_q4_opt2",
+    "option3": "cases_q4_opt3",
+    "option4": "cases_q4_opt4",
+    "correct_answer": "option4"
+  },
+  "question5": {
+    "question-key": "cases_q5",
+    "option1": "cases_q5_opt1",
+    "option2": "cases_q5_opt2",
+    "option3": "cases_q5_opt3",
+    "option4": "cases_q5_opt4",
+    "correct_answer": "option3"
+  },
+  "question6": {
+    "question-key": "cases_q6",
+    "option1": "cases_q6_opt1",
+    "option2": "cases_q6_opt2",
+    "option3": "cases_q6_opt3",
+    "option4": "cases_q6_opt4",
+    "correct_answer": "option2"
+  },
+  "question7": {
+    "question-key": "cases_q7",
+    "option1": "cases_q7_opt1",
+    "option2": "cases_q7_opt2",
+    "option3": "cases_q7_opt3",
+    "option4": "cases_q7_opt4",
+    "correct_answer": "option1"
+  },
+  "question8": {
+    "question-key": "cases_q8",
+    "option1": "cases_q8_opt1",
+    "option2": "cases_q8_opt2",
+    "option3": "cases_q8_opt3",
+    "option4": "cases_q8_opt4",
+    "correct_answer": "option4"
+  },
+  "question9": {
+    "question-key": "cases_q9",
+    "option1": "cases_q9_opt1",
+    "option2": "cases_q9_opt2",
+    "option3": "cases_q9_opt3",
+    "option4": "cases_q9_opt4",
+    "correct_answer": "option2"
+  },
+  "question10": {
+    "question-key": "cases_q10",
+    "option1": "cases_q10_opt1",
+    "option2": "cases_q10_opt2",
+    "option3": "cases_q10_opt3",
+    "option4": "cases_q10_opt4",
+    "correct_answer": "option3"
+  }
+}
+}

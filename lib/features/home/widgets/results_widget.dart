@@ -1,5 +1,6 @@
 import 'package:easy_localization/easy_localization.dart';
 import 'package:flutter/material.dart';
+import 'package:shyraq_ai/shared/widgets/adaptive_dialogue.dart';
 
 class ResultsWidget extends StatefulWidget {
   const ResultsWidget({super.key});
@@ -188,6 +189,15 @@ class _ResultsWidgetState extends State<ResultsWidget> {
     final baseColor = Theme.of(context).textTheme.bodyLarge?.color;
     return TextButton(
       onPressed: () {
+        if (index != 0) {
+          adaptiveDialog(
+            context: context,
+            title: 'Недостаточно информации',
+            content:
+                "Продолжай учить Казахский язык, чтобы мы собрали больше информации о твоей успеваемости",
+          );
+          return;
+        }
         setState(() {
           _pageIndex = index;
         });

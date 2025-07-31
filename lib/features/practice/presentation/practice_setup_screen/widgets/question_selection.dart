@@ -30,47 +30,52 @@ class _QuestionSelectionState extends State<QuestionSelection> {
           Row(
             mainAxisAlignment: MainAxisAlignment.spaceAround,
             children: [
-              Column(
-                children: [
-                  GestureDetector(
-                    onTap: () => _select(0),
-                    child: QuestionSelectionButton(
-                      title: "random".tr(),
-                      icon: Icons.shuffle_rounded,
-                      isSelected: _selectedIndex == 0,
+              Expanded(
+                child: Column(
+                  children: [
+                    GestureDetector(
+                      onTap: () => _select(0),
+                      child: QuestionSelectionButton(
+                        title: "random".tr(),
+                        icon: Icons.shuffle_rounded,
+                        isSelected: _selectedIndex == 0,
+                      ),
                     ),
-                  ),
-                  const SizedBox(height: 4),
-                  GestureDetector(
-                    onTap: () => _select(1),
-                    child: QuestionSelectionButton(
-                      title: "exam".tr(),
-                      icon: Icons.numbers,
-                      isSelected: _selectedIndex == 1,
+                    const SizedBox(height: 4),
+                    GestureDetector(
+                      onTap: () => _select(1),
+                      child: QuestionSelectionButton(
+                        title: "exam".tr(),
+                        icon: Icons.numbers,
+                        isSelected: _selectedIndex == 1,
+                      ),
                     ),
-                  ),
-                ],
+                  ],
+                ),
               ),
-              Column(
-                children: [
-                  GestureDetector(
-                    onTap: () => _select(2),
-                    child: QuestionSelectionButton(
-                      title: "topic".tr(),
-                      icon: Icons.topic_rounded,
-                      isSelected: _selectedIndex == 2,
+              SizedBox(width: 8),
+              Expanded(
+                child: Column(
+                  children: [
+                    GestureDetector(
+                      onTap: () => _select(2),
+                      child: QuestionSelectionButton(
+                        title: "topic".tr(),
+                        icon: Icons.topic_rounded,
+                        isSelected: _selectedIndex == 2,
+                      ),
                     ),
-                  ),
-                  const SizedBox(height: 4),
-                  GestureDetector(
-                    onTap: () => _select(3),
-                    child: QuestionSelectionButton(
-                      title: "in-a-row".tr(),
-                      icon: Icons.table_rows_rounded,
-                      isSelected: _selectedIndex == 3,
+                    const SizedBox(height: 4),
+                    GestureDetector(
+                      onTap: () => _select(3),
+                      child: QuestionSelectionButton(
+                        title: "in-a-row".tr(),
+                        icon: Icons.table_rows_rounded,
+                        isSelected: _selectedIndex == 3,
+                      ),
                     ),
-                  ),
-                ],
+                  ],
+                ),
               ),
             ],
           ),

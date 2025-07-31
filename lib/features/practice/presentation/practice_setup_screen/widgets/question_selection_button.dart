@@ -20,7 +20,6 @@ class _QuestionSelectionButtonState extends State<QuestionSelectionButton> {
   @override
   Widget build(BuildContext context) {
     return AnimatedContainer(
-      width: MediaQuery.sizeOf(context).width / 2.2,
       decoration: BoxDecoration(
         borderRadius: BorderRadius.circular(36),
         color:

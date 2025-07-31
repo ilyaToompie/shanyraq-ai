@@ -7,6 +7,7 @@ import 'package:shyraq_ai/features/users/data/kazakhCities.dart';
 import 'package:shyraq_ai/features/users/data/user_repository.dart';
 import 'package:shyraq_ai/features/users/domain/user.dart';
 import 'package:shyraq_ai/shared/widgets/profile/profile_button.dart';
+import 'package:shyraq_ai/shared/widgets/profile/streak_fire.dart';
 
 class Leaderboard extends StatefulWidget {
   const Leaderboard({super.key});
@@ -76,6 +77,7 @@ class _LeaderboardState extends State<Leaderboard> {
         'uid': doc.id,
         'username': doc['username'],
         'xp': doc['xp'] ?? 0,
+        'streak': doc['streak'] ?? 0,
         'region': doc['region'],
       };
     }).toList();
@@ -234,11 +236,32 @@ class _LeaderboardState extends State<Leaderboard> {
                                     ),
                                   ],
                                 ),
-                                Text(
-                                  '${user['xp']} XP',
-                                  style: TextStyle(
-                                    color: color.onSurfaceVariant,
-                                  ),
+                                Row(
+                                  mainAxisAlignment:
+                                      MainAxisAlignment.spaceBetween,
+                                  children: [
+                                    SizedBox(
+                                      width: 48,
+                                      height: 48,
+                                      child: StreakFire(
+                                        isActive: true,
+                                        days: user['streak'],
+                                      ),
+                                    ),
+                                    const SizedBox(width: 20),
+                                    SizedBox(
+                                      width: 75,
+                                      child: Align(
+                                        alignment: Alignment.centerLeft,
+                                        child: Text(
+                                          '${user['xp']} XP',
+                                          style: TextStyle(
+                                            color: color.onSurfaceVariant,
+                                          ),
+                                        ),
+                                      ),
+                                    ),
+                                  ],
                                 ),
                               ],
                             ),

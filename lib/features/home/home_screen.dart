@@ -69,7 +69,7 @@ class _HomeScreenState extends State<HomeScreen> {
                             children: [
                               const Row(
                                 children: [
-                                  Text("?", style: TextStyle(fontSize: 48)),
+                                  Text("50", style: TextStyle(fontSize: 48)),
                                   SizedBox(width: 8),
                                   Text("/ 100", style: TextStyle(fontSize: 33)),
                                 ],
@@ -88,23 +88,26 @@ class _HomeScreenState extends State<HomeScreen> {
                       ],
                     ),
                   ),
-                  Row(
-                    mainAxisAlignment: MainAxisAlignment.center,
-                    children: [
-                      ProgressWidget(
-                        icon: Icons.school_rounded,
-                        title: 'topics'.tr(),
-                        max: 8,
-                        completed: 2,
-                      ),
-                      SizedBox(width: 12),
-                      ProgressWidget(
-                        icon: Icons.question_mark_rounded,
-                        title: 'questions'.tr(),
-                        max: 8,
-                        completed: 2,
-                      ),
-                    ],
+                  Padding(
+                    padding: const EdgeInsets.all(16.0),
+                    child: Row(
+                      mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                      children: [
+                        ProgressWidget(
+                          icon: Icons.school_rounded,
+                          title: 'topics'.tr(),
+                          max: 8,
+                          completed: 2,
+                        ),
+                        SizedBox(width: 12),
+                        ProgressWidget(
+                          icon: Icons.warning_amber_rounded,
+                          title: 'questions'.tr(),
+                          max: 21,
+                          completed: 2,
+                        ),
+                      ],
+                    ),
                   ),
                   const Padding(
                     padding: EdgeInsets.all(16.0),

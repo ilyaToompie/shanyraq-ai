@@ -6,7 +6,9 @@ import 'package:shyraq_ai/shared/adaptive_navigator.dart';
 
 class ProfileButton extends StatelessWidget {
   final AppUser? user;
-  const ProfileButton({super.key, required this.user});
+  final double maxRadius;
+
+  const ProfileButton({super.key, required this.user, this.maxRadius = 22});
 
   @override
   Widget build(BuildContext context) {
@@ -14,12 +16,13 @@ class ProfileButton extends StatelessWidget {
       future: loadUser(),
       builder: (context, snapshot) {
         if (snapshot.connectionState == ConnectionState.waiting) {
-          return const CircleAvatar(
+          return CircleAvatar(
             minRadius: 16,
-            maxRadius: 24,
-            child: CircularProgressIndicator(),
+            maxRadius: maxRadius,
+            child: const CircularProgressIndicator(),
           );
         }
+
         if (user == null) {
           return GestureDetector(
             onTap: () {
@@ -28,10 +31,9 @@ class ProfileButton extends StatelessWidget {
                 builder: (_) => const AuthScreen(),
               );
             },
-            child: const CircleAvatar(
-              minRadius: 22,
-              maxRadius: 22,
-
+            child: CircleAvatar(
+              minRadius: maxRadius - 2,
+              maxRadius: maxRadius,
               foregroundImage:
                   const AssetImage('assets/avatar.png') as ImageProvider,
             ),
@@ -45,10 +47,10 @@ class ProfileButton extends StatelessWidget {
               );
             },
             child: CircleAvatar(
-              minRadius: 22,
-              maxRadius: 22,
+              minRadius: maxRadius - 2,
+              maxRadius: maxRadius,
               foregroundImage:
-                  (user!.avatarUri == "")
+                  (user!.avatarUri.isEmpty)
                       ? const AssetImage('assets/avatar.png') as ImageProvider
                       : NetworkImage(user!.avatarUri),
             ),

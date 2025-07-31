@@ -38,6 +38,11 @@ class _LanguageSelectorState extends State<LanguageSelector> {
         child: Column(
           mainAxisAlignment: MainAxisAlignment.center,
           children: [
+            Text(
+              'select_language'.tr(),
+              style: const TextStyle(fontSize: 28, fontWeight: FontWeight.bold),
+            ),
+            const SizedBox(height: 32),
             Row(
               mainAxisAlignment: MainAxisAlignment.spaceEvenly,
               children:
@@ -71,6 +76,12 @@ class _LanguageSelectorState extends State<LanguageSelector> {
             ),
             const SizedBox(height: 40),
             ElevatedButton(
+              style: ElevatedButton.styleFrom(
+                backgroundColor: Theme.of(context).colorScheme.onSecondary,
+                iconSize: 20,
+                minimumSize: const Size.fromHeight(50),
+                textStyle: const TextStyle(fontSize: 20),
+              ),
               onPressed:
                   _selectedLocale == null
                       ? null

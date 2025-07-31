@@ -1,5 +1,6 @@
 import 'dart:convert';
 import 'dart:math';
+import 'package:easy_localization/easy_localization.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
 import 'package:shyraq_ai/features/lessons/domain/practice_question.dart';
@@ -92,7 +93,7 @@ class _PracticeScreenState extends State<PracticeScreen> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      appBar: AppBar(title: const Text('Practice')),
+      appBar: AppBar(title: Text('practice'.tr())),
       body: FutureBuilder<List<PracticeQuestion>>(
         future: _futureQuestions,
         builder: (context, snapshot) {
@@ -125,7 +126,7 @@ class _PracticeScreenState extends State<PracticeScreen> {
                     Text(q.question, style: const TextStyle(fontSize: 20)),
                     const SizedBox(height: 24),
                     ...q.options.map((opt) {
-                      Color? color;
+                      Color color = Colors.white; // default color is white
                       if (isAnswered) {
                         if (opt == q.answer) {
                           color = Colors.green;

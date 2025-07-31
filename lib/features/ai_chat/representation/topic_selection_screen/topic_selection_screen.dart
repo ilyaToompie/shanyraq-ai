@@ -1,10 +1,12 @@
 import 'dart:convert';
+import 'package:easy_localization/easy_localization.dart';
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
 import 'package:shyraq_ai/features/ai_chat/representation/ai_chat_screen/ai_chat_screen.dart';
 import 'package:shyraq_ai/features/ai_chat/representation/topic_selection_screen/widgets/topic_carousel.dart';
 import 'package:shyraq_ai/features/ai_chat/topic.dart';
+import 'package:shyraq_ai/shared/widgets/adaptive_dialogue.dart';
 
 class TopicSelectionScreen extends StatefulWidget {
   const TopicSelectionScreen({super.key});
@@ -41,7 +43,7 @@ class _TopicSelectionScreenState extends State<TopicSelectionScreen> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      appBar: AppBar(title: const Text('Topic selection')),
+      appBar: AppBar(title: Text('topic-selection'.tr())),
       body: Container(
         decoration: const BoxDecoration(
           color: Color.fromRGBO(20, 20, 20, 1),
@@ -53,8 +55,8 @@ class _TopicSelectionScreenState extends State<TopicSelectionScreen> {
         child: Column(
           children: [
             const SizedBox(height: 16),
-            const Text(
-              "Select level",
+            Text(
+              "select-level".tr(),
               style: TextStyle(color: Colors.white, fontSize: 24),
             ),
             Padding(
@@ -86,9 +88,30 @@ class _TopicSelectionScreenState extends State<TopicSelectionScreen> {
                         );
                       },
                       icon: const Icon(Icons.chat),
-                      label: const Text('Start Chat'),
+                      label: Text('start-chat'.tr()),
                       style: ElevatedButton.styleFrom(
                         overlayColor: Theme.of(context).colorScheme.onPrimary,
+                        iconSize: 20,
+                        minimumSize: const Size.fromHeight(50),
+                        textStyle: const TextStyle(fontSize: 20),
+                      ),
+                    ),
+                  ),
+                  Padding(
+                    padding: const EdgeInsets.all(16.0),
+                    child: ElevatedButton.icon(
+                      onPressed: () {
+                        adaptiveDialog(
+                          context: context,
+                          title: 'В разработке',
+                          content: 'Данная функция не входит в демо версию',
+                        );
+                      },
+                      icon: const Icon(Icons.voice_chat),
+                      label: Text('start-voice-chat'.tr()),
+                      style: ElevatedButton.styleFrom(
+                        backgroundColor:
+                            Theme.of(context).colorScheme.onSecondary,
                         iconSize: 20,
                         minimumSize: const Size.fromHeight(50),
                         textStyle: const TextStyle(fontSize: 20),

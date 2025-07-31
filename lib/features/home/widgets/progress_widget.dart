@@ -15,36 +15,40 @@ class ProgressWidget extends StatelessWidget {
   });
   @override
   Widget build(BuildContext context) {
-    return Container(
-      width: MediaQuery.sizeOf(context).width / 2.2,
-      decoration: BoxDecoration(
-        boxShadow: const [BoxShadow(blurRadius: 4, offset: Offset(2, 2))],
-        borderRadius: BorderRadius.circular(48),
-        color: Theme.of(context).colorScheme.onPrimary,
-      ),
-      child: Padding(
-        padding: const EdgeInsets.symmetric(vertical: 20.0),
-        child: Column(
-          children: [
-            Icon(icon, size: 40),
-            Row(
-              mainAxisAlignment: MainAxisAlignment.center,
-              crossAxisAlignment: CrossAxisAlignment.baseline,
-              textBaseline: TextBaseline.alphabetic,
-              children: [
-                Text(completed.toString(), style: const TextStyle(fontSize: 48)),
-                Text(
-                  " / $max $title",
-                  style: TextStyle(
-                    fontSize: Theme.of(context).textTheme.bodyLarge!.fontSize,
-                    color: Theme.of(
-                      context,
-                    ).textTheme.bodyLarge!.color?.withAlpha(150),
+    return Expanded(
+      child: Container(
+        decoration: BoxDecoration(
+          boxShadow: const [BoxShadow(blurRadius: 4, offset: Offset(2, 2))],
+          borderRadius: BorderRadius.circular(48),
+          color: Theme.of(context).colorScheme.onPrimary,
+        ),
+        child: Padding(
+          padding: const EdgeInsets.symmetric(vertical: 20.0),
+          child: Column(
+            children: [
+              Icon(icon, size: 40),
+              Row(
+                mainAxisAlignment: MainAxisAlignment.center,
+                crossAxisAlignment: CrossAxisAlignment.baseline,
+                textBaseline: TextBaseline.alphabetic,
+                children: [
+                  Text(
+                    completed.toString(),
+                    style: const TextStyle(fontSize: 48),
                   ),
-                ),
-              ],
-            ),
-          ],
+                  Text(
+                    " / $max $title",
+                    style: TextStyle(
+                      fontSize: Theme.of(context).textTheme.bodyLarge!.fontSize,
+                      color: Theme.of(
+                        context,
+                      ).textTheme.bodyLarge!.color?.withAlpha(150),
+                    ),
+                  ),
+                ],
+              ),
+            ],
+          ),
         ),
       ),
     );

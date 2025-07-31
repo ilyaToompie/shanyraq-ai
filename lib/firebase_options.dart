@@ -72,4 +72,5 @@ class DefaultFirebaseOptions {
     storageBucket: 'shyraqai.firebasestorage.app',
     iosBundleId: 'com.example.shyraqAi',
   );
+
 }

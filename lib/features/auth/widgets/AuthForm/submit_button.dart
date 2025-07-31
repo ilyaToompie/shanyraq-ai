@@ -17,7 +17,7 @@ class SubmitButton extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     final color = Theme.of(context).colorScheme;
-
+    /*
     if (Platform.isIOS) {
       return CupertinoButton.filled(
         borderRadius: BorderRadius.circular(10),
@@ -25,7 +25,7 @@ class SubmitButton extends StatelessWidget {
         child: Text(isLogin ? 'login'.tr() : 'register'.tr()),
       );
     }
-
+*/
     return ElevatedButton(
       onPressed: onPressed,
       style: ElevatedButton.styleFrom(

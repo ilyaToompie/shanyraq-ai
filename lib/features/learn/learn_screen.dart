@@ -4,6 +4,7 @@ import 'package:easy_localization/easy_localization.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart' show rootBundle;
 import 'package:shyraq_ai/features/learn/widgets/lesson_info_widget.dart';
+import 'package:shyraq_ai/features/learn/widgets/lessons_map.dart';
 
 class LearnScreen extends StatefulWidget {
   const LearnScreen({super.key});
@@ -63,7 +64,7 @@ class _LearnScreenState extends State<LearnScreen> {
         automaticallyImplyLeading: false,
 
         scrolledUnderElevation: 0,
-        title: Text("learn".tr(), style: TextStyle(fontSize: 34)),
+        title: Text("learn".tr(), style: const TextStyle(fontSize: 32)),
         centerTitle: false,
       ),
       body: Stack(
@@ -72,8 +73,8 @@ class _LearnScreenState extends State<LearnScreen> {
             crossAxisAlignment: CrossAxisAlignment.start,
             children: [
               Padding(
-                padding: EdgeInsets.symmetric(horizontal: 12.0),
-                child: Text("todays-plan".tr(), style: TextStyle(fontSize: 48)),
+                padding: EdgeInsets.symmetric(horizontal: 16.0),
+                child: Text("todays-plan".tr(), style: TextStyle(fontSize: 32)),
               ),
               Padding(
                 padding: const EdgeInsets.symmetric(horizontal: 12.0),
@@ -83,116 +84,7 @@ class _LearnScreenState extends State<LearnScreen> {
                 ),
               ),
               const SizedBox(height: 12),
-              Container(
-                decoration: BoxDecoration(
-                  borderRadius: const BorderRadius.vertical(
-                    top: Radius.circular(32),
-                  ),
-                  color: Colors.black.withAlpha(20),
-                ),
-                child: Column(
-                  children: [
-                    Padding(
-                      padding: const EdgeInsets.only(top: 18.0),
-                      child: SizedBox(
-                        width: MediaQuery.sizeOf(context).width,
-                        height: MediaQuery.of(context).size.height / 1.8,
-                        child: ShaderMask(
-                          shaderCallback: (Rect bounds) {
-                            return const LinearGradient(
-                              begin: Alignment.topCenter,
-                              end: Alignment.bottomCenter,
-                              colors: [
-                                Colors.transparent,
-                                Colors.black,
-                                Colors.black,
-                                Colors.transparent,
-                              ],
-                              stops: [0.0, 0.1, 0.9, 1.0],
-                            ).createShader(bounds);
-                          },
-                          blendMode: BlendMode.dstIn,
-                          child: ListView.builder(
-                            itemCount: lessons.length,
-                            itemBuilder: (context, index) {
-                              final lesson = lessons[index];
-                              final isLast = index == lessons.length - 1;
-
-                              return Column(
-                                children: [
-                                  GestureDetector(
-                                    onTap:
-                                        () =>
-                                            showLessonOverlay(context, lesson),
-                                    child: Row(
-                                      children: [
-                                        Column(
-                                          children: [
-                                            Padding(
-                                              padding:
-                                                  const EdgeInsets.symmetric(
-                                                    horizontal: 12.0,
-                                                  ),
-                                              child: Container(
-                                                width: 80,
-                                                height: 80,
-                                                decoration: BoxDecoration(
-                                                  boxShadow: const [
-                                                    BoxShadow(
-                                                      spreadRadius: 0.1,
-                                                      blurRadius: 2.5,
-                                                    ),
-                                                  ],
-                                                  color:
-                                                      Theme.of(
-                                                        context,
-                                                      ).colorScheme.secondary,
-                                                  borderRadius:
-                                                      BorderRadius.circular(20),
-                                                ),
-                                                alignment: Alignment.center,
-                                                child: Text(
-                                                  "${lesson['id']}",
-                                                  style: const TextStyle(
-                                                    fontSize: 26,
-                                                    color: Colors.white,
-                                                    fontWeight: FontWeight.bold,
-                                                  ),
-                                                ),
-                                              ),
-                                            ),
-                                            if (!isLast)
-                                              Container(
-                                                width: 4,
-                                                height: 40,
-                                                color: Colors.blueAccent
-                                                    .withAlpha(80),
-                                              ),
-                                          ],
-                                        ),
-                                        const SizedBox(width: 16),
-                                        Expanded(
-                                          child: Text(
-                                            lesson['title'],
-                                            style: const TextStyle(
-                                              fontSize: 20,
-                                              fontWeight: FontWeight.w500,
-                                            ),
-                                          ),
-                                        ),
-                                      ],
-                                    ),
-                                  ),
-                                ],
-                              );
-                            },
-                          ),
-                        ),
-                      ),
-                    ),
-                  ],
-                ),
-              ),
+              LessonsMap(),
             ],
           ),
         ],

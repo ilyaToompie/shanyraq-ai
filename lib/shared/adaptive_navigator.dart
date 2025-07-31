@@ -1,5 +1,6 @@
 import 'dart:io' show Platform;
 import 'package:flutter/cupertino.dart';
+import 'package:flutter/foundation.dart';
 import 'package:flutter/material.dart';
 
 Future<T?> adaptiveNavigatorPush<T>({
@@ -7,7 +8,9 @@ Future<T?> adaptiveNavigatorPush<T>({
   required WidgetBuilder builder,
 }) {
   final route =
-      Platform.isIOS
+      kIsWeb
+          ? MaterialPageRoute<T>(builder: builder)
+          : Platform.isIOS
           ? CupertinoPageRoute<T>(builder: builder)
           : MaterialPageRoute<T>(builder: builder);
   return Navigator.of(context).push<T>(route);

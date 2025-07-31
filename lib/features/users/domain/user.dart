@@ -9,6 +9,7 @@ class AppUser {
   final String avatarUri;
   final List<String> friends;
   final int xp;
+  final int streak;
   AppUser({
     required this.username,
     required this.email,
@@ -17,6 +18,7 @@ class AppUser {
     required this.region,
     required this.friends,
     required this.xp,
+    required this.streak,
   });
 
   factory AppUser.fromFirestore(DocumentSnapshot doc) {
@@ -29,6 +31,10 @@ class AppUser {
       avatarUri: data['avatarUri'] ?? '',
       xp: data['xp'] ?? 0,
       friends: List<String>.from(data['friends'] ?? []),
+      streak:
+          (data['streak'] is int)
+              ? data['streak']
+              : int.tryParse(data['streak'].toString()) ?? 0,
     );
   }
 
